@@ -1,18 +1,19 @@
 // getting-started.js
 const mongoose = require("mongoose");
 const express = require("express");
+require("dotenv").config();
 const { successResponse } = require("./controllers/responseController");
 const Product = require("./models/productModel");
 const app = express();
-const port = 5100;
+const port = 5000;
 
 // connect to DataBase on server site
-const url = `mongodb://localhost:27017/FoodGrainDB`;
-// const url = process.env.DB_URL;
+// const url = `mongodb://localhost:27017/FoodGrainDB`;
+const url = process.env.DB_URL;
 const connectDB = async () => {
   try {
-    await mongoose.connect(url);
-    // await mongoose.connect(url, { dbName: "food_grain" });
+    // await mongoose.connect(url);
+    await mongoose.connect(url, { dbName: "food_grain" });
     console.log("Database is connected now");
   } catch (error) {
     console.log("Database is not connected", error);
