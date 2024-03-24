@@ -40,7 +40,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../public/Food_Grain.png";
+import logo from "@/assets/Food_Grain.png";
 import { FaSearch } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -73,9 +73,9 @@ const Navbar = () => {
   ];
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-400 sticky top-0 z-50">
-      <nav className="h-full max-w-screen-xl mx-auto px-4 xl:px-0 flex items-center justify-between gap-2">
+      <nav className="h-full max-w-[80%] mx-auto px-4 xl:px-0 flex items-center justify-between gap-2">
         <Link href={"/"}>
-          <Image src={logo} alt="logo" className="w-20" />
+          <Image src={logo} alt="logo" className="w-full" />
         </Link>
         <div className="relative w-full hidden lg:inline-flex lg:w-[600px] h-10 text-base text-primeColor border-[1px] border-black items-center gap-2 justify-between px-6 rounded-md">
           <input

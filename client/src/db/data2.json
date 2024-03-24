@@ -1,0 +1,93 @@
+[
+  {
+    "title": "Almond (কাঠবাদাম)",
+    "url_title": "almond",
+    "image": "almond",
+    "price": 0
+  },
+  {
+    "title": "Chaler Gura (চালের গুঁড়া)",
+    "url_title": "chaler-gura",
+    "image": "chaler_gura",
+    "price": 0
+  },
+  {
+    "title": " Chera (চিড়া)",
+    "url_title": "chera",
+    "image": "cira",
+    "price": 0
+  },
+  {
+    "title": "Coconut Oil (নারকেল তেল)",
+    "url_title": "coconut-oil",
+    "image": "coconut_oil",
+    "price": 0
+  },
+  {
+    "title": "Cream Honey ()",
+    "url_title": "cream-honey",
+    "image": "cream_honey",
+    "price": 0
+  },
+  {
+    "title": "Dates (খেজুর)",
+    "url_title": "dates",
+    "image": "dates",
+    "price": 0
+  },
+  {
+    "title": "Ghee (ঘি)",
+    "url_title": "ghee",
+    "image": "ghee",
+    "price": "0"
+  },
+  {
+    "title": "Grist  ",
+    "url_title": "grist",
+    "image": "grist",
+    "price": 0
+  },
+  { "title": "Gur", "url_title": "gur", "image": "gur", "price": 0 },
+  {
+    "title": "Honey",
+    "url_title": "honey",
+    "image": "honey",
+    "price": 0
+  },
+  {
+    "title": "Kaju Badam",
+    "url_title": "kaju-badam",
+    "image": "kaju",
+    "price": 0
+  },
+  {
+    "title": "Kalojira Honey",
+    "url_title": "kalojira-honey",
+    "image": "kalojira_honey",
+    "price": 0
+  },
+  {
+    "title": "Muri",
+    "url_title": "muri",
+    "image": "muri",
+    "price": 0
+  },
+  {
+    "title": "Mustared Oil",
+    "url_title": "mustared-oil",
+    "image": "mustared_oil",
+    "price": 0
+  },
+  {
+    "title": "Narkel",
+    "url_title": "narkel",
+    "image": "narkel",
+    "price": 0
+  },
+  {
+    "title": "Patali",
+    "url_title": "patali",
+    "image": "patali",
+    "price": 0
+  }
+]
