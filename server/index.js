@@ -11,17 +11,15 @@ const {
 } = require("./controllers/responseController");
 const Product = require("./models/productModel");
 
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 5000;
 const corsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
 };
-
-dotenv.config();
 app.use(cors(corsOptions));
-const app = express();
-const port = process.env.PORT || 5000;
 
 // connect to DataBase on server site
 // const url = `mongodb://localhost:27017/FoodGrainDB`;
