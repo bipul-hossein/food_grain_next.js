@@ -1,11 +1,18 @@
 // getting-started.js
-const mongoose = require("mongoose");
 const express = require("express");
-require("dotenv").config();
-const { successResponse } = require("./controllers/responseController");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const createError = require("http-errors");
+
+const {
+  successResponse,
+  errorResponse,
+} = require("./controllers/responseController");
 const Product = require("./models/productModel");
+
+dotenv.config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // connect to DataBase on server site
 // const url = `mongodb://localhost:27017/FoodGrainDB`;
@@ -50,6 +57,20 @@ app.get("/product/:id", async (req, res, next) => {
 });
 app.get("/", (req, res) => {
   res.send("Hello next World!");
+});
+
+// express error handling middleware
+// client error handling
+app.use((req, res, next) => {
+  next(createError(404, "Route Not Found"));
+});
+
+// server error handling -all the error coming here.
+app.use((err, req, res, next) => {
+  return errorResponse(res, {
+    statusCode: err.status,
+    message: err.message,
+  });
 });
 
 app.listen(port, async () => {
