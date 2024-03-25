@@ -3,7 +3,7 @@ import Card from "../card/Card";
 
 const Products = async () => {
   const { payload: products } = await getAllProducts();
-  console.log(products, "products page");
+  // console.log(products, "products page");
   return (
     <div className={`mx-auto py-2 mt-10 md:px-4 lg:px-0 `}>
       <h2 className="mb-5 text-4xl font-bold text-[#242424]">All Product</h2>

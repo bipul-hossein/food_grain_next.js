@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const createError = require("http-errors");
 
 const {
@@ -10,7 +11,15 @@ const {
 } = require("./controllers/responseController");
 const Product = require("./models/productModel");
 
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
 dotenv.config();
+app.use(cors(corsOptions));
 const app = express();
 const port = process.env.PORT || 5000;
 
