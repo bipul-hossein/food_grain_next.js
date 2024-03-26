@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 // import { ProductContext } from "../../../contexts/ProductsProvider";
 
 const Card = ({ data, icon }) => {
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="group flex flex-col rounded-md justify-between w-full bg-white p-2 md:p-4 border-[1px] hover:border-[#fa6602] relative ">

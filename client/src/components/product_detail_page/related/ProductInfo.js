@@ -1,21 +1,14 @@
 // components/ProductInfo.js
 const ProductInfo = ({ product }) => {
   return (
-    <div className="w-[60%]">
-      <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
-      <p className="text-gray-700 mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.sfdijflksaflksa
-        jlksajf Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor
-        ad dicta sit vel ratione blanditiis architecto, dolorum, pariatur
-        ducimus, voluptate exercitationem? Minima reiciendis sit id, in
-        reprehenderit rerum culpa doloribus quisquam distinctio dolorem odio a
-        beatae tempore ipsum mollitia assumenda expedita. Illum sapiente facilis
-        obcaecati tenetur praesentium accusamus culpa perferendis!
-      </p>
+    <div className="md:w-[60%]">
+      <h1 className="text-3xl font-bold mb-3 ">{product?.title}</h1>
+      <p className="md:text-xl text-gray-700 mb-4">{product?.description}</p>
       <div className="flex items-center mb-4">
-        <span className="text-gray-600 mr-2">Price:</span>
-        <span className="text-green-600 font-semibold">{product.price}</span>
+        <span className="text-xl text-gray-600 mr-2">Price:</span>
+        <span className="text-xl text-green-600 font-semibold">
+          {product?.price}
+        </span>
       </div>
       <div className="flex items-center mb-4">
         <span className="text-gray-600 mr-2">Availability:</span>

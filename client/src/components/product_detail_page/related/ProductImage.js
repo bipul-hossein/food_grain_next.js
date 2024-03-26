@@ -3,7 +3,7 @@ import Image from "next/image";
 // components/ProductImage.js
 const ProductImage = ({ product }) => {
   return (
-    <div className="w-[40%]">
+    <div className="md:w-[40%]">
       <Image
         src={product?.image}
         alt="Product Image"

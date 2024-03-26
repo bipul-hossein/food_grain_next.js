@@ -73,9 +73,9 @@ const Navbar = () => {
   ];
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-400 sticky top-0 z-50">
-      <nav className="h-full max-w-[80%] mx-auto px-4 xl:px-0 flex items-center justify-between gap-2">
+      <nav className="h-full md:max-w-[80%] mx-auto px-3 xl:px-0 flex items-center justify-between gap-2">
         <Link href={"/"}>
-          <Image src={logo} alt="logo" className="w-full" />
+          <Image src={logo} alt="logo" className="w-full h-full" />
         </Link>
         <div className="relative w-full hidden lg:inline-flex lg:w-[600px] h-10 text-base text-primeColor border-[1px] border-black items-center gap-2 justify-between px-6 rounded-md">
           <input

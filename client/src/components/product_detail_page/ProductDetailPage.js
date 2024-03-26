@@ -10,15 +10,15 @@ const BREADCRUMBS = [
 ];
 
 const ProductDetailPage = ({ product }) => {
-  console.log(product, "ldsjfkls");
+  // console.log(product, "ldsjfkls");
   return (
     <div className="mx-auto py-4">
       <PageNav BREADCRUMBS={BREADCRUMBS} />
-      <div className="flex flex-col justify-between md:flex-row  gap-4">
+      <div className="flex flex-col justify-between md:flex-row gap-4">
         <ProductImage product={product} />
         <ProductInfo product={product} />
       </div>
-      <ProductAdditionalInfo />
+      <ProductAdditionalInfo product={product} />
     </div>
   );
 };
