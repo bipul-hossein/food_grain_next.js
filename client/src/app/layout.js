@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <Layout>
           <Navbar />
           <PageButton />
-          <div className="w-full mx-3 md:w-[80%] md:mx-auto">{children}</div>
+          <div className="mx-3 md:w-[80%] md:mx-auto">{children}</div>
           <Footer />
         </Layout>
       </body>

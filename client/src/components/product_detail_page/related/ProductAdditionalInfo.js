@@ -27,7 +27,7 @@ const ProductAdditionalInfo = ({ product }) => {
       <div className={`${activeIndex === 0 ? "block" : "hidden"}`}>
         <div className={`${activeIndex === 0 ? "block" : "hidden"}`}>
           <h3 className="text-base font-bold my-3">Product Details</h3>
-          <p className="text-sm text-gray-500 leading-6">
+          <p className="text-sm  text-justify text-gray-500 leading-6">
             {product?.description}
           </p>
         </div>
