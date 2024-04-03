@@ -45,8 +45,8 @@ const Banner = () => {
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        {bannerItems.map((item) => (
-          <SwiperSlide>
+        {bannerItems.map((item, i) => (
+          <SwiperSlide key={i}>
             <div>
               <Image src={item?.img} />
             </div>

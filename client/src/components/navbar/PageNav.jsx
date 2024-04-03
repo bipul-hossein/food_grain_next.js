@@ -5,7 +5,7 @@ const PageNav = ({ BREADCRUMBS }) => {
     <nav className="lg:max-w-lg lg:self-end">
       <ol className="flex items-center space-x-2">
         {BREADCRUMBS.map((breadcrumb, i) => (
-          <li key={breadcrumb.href}>
+          <li key={i}>
             <div className="flex items-center text-sm">
               <Link
                 href={breadcrumb.href}

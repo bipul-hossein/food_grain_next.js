@@ -8,3 +8,21 @@
   font-style: normal;
   font-stretch: 75% 125%;
 }
+/* 
+
+.btn {
+  @apply font-bold py-2 px-4 rounded !important;
+}
+
+*/
+
+.btn {
+  font-weight: 700 !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  border-radius: 0.25rem !important;
+  background: #225ba9;
+  color: white;
+}

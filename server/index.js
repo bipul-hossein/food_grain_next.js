@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const createError = require("http-errors");
+const morgan = require("morgan");
 
 const {
   successResponse,
   errorResponse,
 } = require("./controllers/responseController");
 const Product = require("./models/productModel");
+const productRouter = require("./routes/productRouter");
 
 dotenv.config();
 
@@ -21,47 +23,25 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+//middleware
+app.use(morgan("dev"));
+
+//routes
+app.use("/api", productRouter); 
+
 // connect to DataBase on server site
-// const url = `mongodb://localhost:27017/FoodGrainDB`;
-const url = process.env.DB_URL;
+const url = `mongodb://localhost:27017/FoodGrainDB`;
+// const url = process.env.DB_URL;
 const connectDB = async () => {
   try {
-    // await mongoose.connect(url);
-    await mongoose.connect(url, { dbName: "food_grain" });
+    await mongoose.connect(url);
+    // await mongoose.connect(url, { dbName: "food_grain" });
     console.log("Database is connected now");
   } catch (error) {
     console.log("Database is not connected", error);
   }
 };
 
-app.get("/products", async (req, res, next) => {
-  try {
-    const getProducts = await Product.find({}).lean();
-
-    return successResponse(res, {
-      statusCode: 200,
-      message: "Products return successfully",
-      payload: getProducts,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.get("/product/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const getProduct = await Product.findOne({ url_title: id }).lean();
-    console.log(getProduct);
-    return successResponse(res, {
-      statusCode: 200,
-      message: "Product return success",
-      payload: getProduct,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
 app.get("/", (req, res) => {
   res.send("Hello next World!");
 });

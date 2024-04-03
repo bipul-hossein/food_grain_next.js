@@ -67,8 +67,8 @@ const Navbar = () => {
       link: "/cart",
     },
     {
-      title: "Profile",
-      link: "/profile",
+      title: "Register",
+      link: "/register",
     },
   ];
   return (
@@ -95,10 +95,10 @@ const Navbar = () => {
           )}
         </div>
         <div className="hidden md:inline-flex items-center gap-2">
-          {navBarList.map((item) => (
+          {navBarList.map((item, i) => (
             <Link
               href={item?.link}
-              key={item?.link}
+              key={i}
               className={`flex hover:font-medium w-20 h-6 justify-center items-center px-12 text-gray-600 hover:underline underline-offset-4 decoration-[1px] hover:text-gray-950 md:border-r-[2px] border-r-gray-400 duration-200 last:border-r-0 ${
                 pathname === item?.link && "text-gray-950 underline"
               }`}
