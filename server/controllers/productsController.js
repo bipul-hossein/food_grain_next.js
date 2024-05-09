@@ -37,9 +37,9 @@ const handleCreateProduct = async (req, res, next) => {
 const handleUpdateProduct = async (req, res, next) => {
   try {
     const { title, url_title, image, price, weight, description } = req.body;
-    console.log(title, url_title, image, price, weight, description);
+    // console.log(title, url_title, image, price, weight, description);
     const { id } = req.params;
-    console.log(id);
+    // console.log(id);
     const filter = { slug: id };
     const updates = {
       $set: {
