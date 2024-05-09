@@ -1,19 +1,15 @@
 "use client";
-import { auth } from "@/firebase/firebase.config";
 import {
+  getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
 } from "firebase/auth";
-// import {
-//   signInWithPopup,
-//   GoogleAuthProvider,
-//   onAuthStateChanged,
-//   signOut,
-//   getAuth,
-// } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
+import { app } from "../firebase/firebase.config";
+
 export const AuthContext = createContext();
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

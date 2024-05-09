@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 const AdminNav = () => {
   const pathname = usePathname();
@@ -20,7 +19,7 @@ const AdminNav = () => {
     },
     {
       title: "Settings",
-      link: "/dashboards/settings",
+      link: "/dashboard/settings",
     },
   ];
   return (

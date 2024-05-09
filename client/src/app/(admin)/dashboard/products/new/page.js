@@ -1,12 +1,7 @@
 "use client";
-import { getSingleProduct } from "@/utils/getSingleProduct";
 
-const DynamicProductEditPage = async ({ params }) => {
-  console.log(params.slug, "params");
-  const { payload: product } = await getSingleProduct(params?.slug);
-  console.log(product);
-
-  const handleUpdateProduct = (event) => {
+const NewProductPage = () => {
+  const handleCreateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value;
@@ -16,9 +11,10 @@ const DynamicProductEditPage = async ({ params }) => {
     const weight = form.weight.value;
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
-    console.log("click", new_product);
-    fetch(`http://localhost:5000/api/product/${product?.slug}`, {
-      method: "PUT",
+    console.log(new_product);
+
+    fetch("http://localhost:5000/api/product", {
+      method: "POST",
       headers: {
         "Content-type": "application/json",
       },
@@ -38,10 +34,10 @@ const DynamicProductEditPage = async ({ params }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-medium">Edit product</h2>
+      <h2 className="text-xl font-medium">Add New Product</h2>
       {/* <p className="text-blue-500"> {product?.title}</p> */}
       {/* <form onSubmit={handleUpdateProduct} className="my-2"> */}
-      <form onSubmit={handleUpdateProduct} className="my-2">
+      <form onSubmit={handleCreateProduct} className="my-2">
         <div className="form-control w-full mt-3">
           <label className="label">
             <span className="label-text">Title</span>
@@ -51,7 +47,6 @@ const DynamicProductEditPage = async ({ params }) => {
             className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
             type="text"
             placeholder="Title"
-            defaultValue={product?.title}
             name="title"
           />
         </div>
@@ -64,7 +59,6 @@ const DynamicProductEditPage = async ({ params }) => {
             className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
             type="text"
             placeholder="Url Title"
-            defaultValue={product?.slug}
             name="url_title"
           />
         </div>
@@ -77,7 +71,6 @@ const DynamicProductEditPage = async ({ params }) => {
             className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
             type="text"
             placeholder="Image Link"
-            defaultValue={product?.image}
             name="image"
           />
         </div>
@@ -90,7 +83,6 @@ const DynamicProductEditPage = async ({ params }) => {
             className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
             type="number"
             placeholder="Price"
-            defaultValue={product?.price}
             name="price"
           />
         </div>
@@ -103,7 +95,6 @@ const DynamicProductEditPage = async ({ params }) => {
             className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
             type="text"
             placeholder="Weight"
-            defaultValue={product?.weight}
             name="weight"
           />
         </div>
@@ -117,19 +108,18 @@ const DynamicProductEditPage = async ({ params }) => {
             id="w3review"
             name="description"
             placeholder="Description"
-            defaultValue={product?.description}
             rows="6"
             cols="50"
           ></textarea>
         </div>
         <input
           type="submit"
-          value="Update"
-          className="bg-blue-500 text-black px-5 py-2 rounded hover:bg-slate-500 cursor-pointer"
+          value="Submit"
+          className="bg-blue-500 text-white px-5 py-2 rounded hover:bg-slate-500 cursor-pointer"
         />
       </form>
     </div>
   );
 };
 
-export default DynamicProductEditPage;
+export default NewProductPage;

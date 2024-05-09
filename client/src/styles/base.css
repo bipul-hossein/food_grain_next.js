@@ -16,6 +16,16 @@
 
 */
 
+.btn_sm {
+  font-weight: 400 !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  border-radius: 0.25rem !important;
+  background: #225ba9;
+  color: white;
+}
 .btn {
   font-weight: 700 !important;
   padding-top: 0.5rem !important;

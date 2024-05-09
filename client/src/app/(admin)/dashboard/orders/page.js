@@ -1,9 +1,7 @@
-import React from "react";
-
 const OrdersPage = () => {
   return (
     <div>
-      <h2>This is order page</h2>
+      <h2 className="text-xl font-medium">This is order page</h2>
     </div>
   );
 };

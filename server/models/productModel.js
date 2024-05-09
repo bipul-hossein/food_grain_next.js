@@ -10,43 +10,31 @@ const productSchema = new Schema({
     type: String,
     required: true,
     lowercase: true,
+    unique: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  description: {
+  image: {
     type: String,
     trim: true,
-    // require: true,
+    require: true,
   },
   price: {
     type: Number,
     trim: true,
     require: true,
   },
-  stock: {
-    type: Number,
+  weight: {
+    type: String,
     trim: true,
     // require: true,
   },
-  sold: {
-    type: Number,
+  description: {
+    type: String,
     trim: true,
-    default: 0,
-  },
-  shipping: {
-    type: Number,
-    default: 0,
-  },
-  image: {
-    type: String,
-    // require: true,
-  },
-  category: {
-    type: String,
-    ref: "Category",
     require: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

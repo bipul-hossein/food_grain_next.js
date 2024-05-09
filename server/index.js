@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const createError = require("http-errors");
 const morgan = require("morgan");
 
@@ -25,17 +26,19 @@ app.use(cors(corsOptions));
 
 //middleware
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //routes
-app.use("/api", productRouter); 
+app.use("/api", productRouter);
 
 // connect to DataBase on server site
-const url = `mongodb://localhost:27017/FoodGrainDB`;
-// const url = process.env.DB_URL;
+// const url = `mongodb://localhost:27017/FoodGrainDB`;
+const url = process.env.DB_URL_AN;
 const connectDB = async () => {
   try {
-    await mongoose.connect(url);
-    // await mongoose.connect(url, { dbName: "food_grain" });
+    // await mongoose.connect(url);
+    await mongoose.connect(url, { dbName: "food_grainDB" });
     console.log("Database is connected now");
   } catch (error) {
     console.log("Database is not connected", error);
@@ -61,6 +64,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, async () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port http://localhost:${port}`);
   await connectDB();
 });
