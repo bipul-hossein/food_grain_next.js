@@ -18,7 +18,7 @@ const DynamicProductEditPage = async ({ params }) => {
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
     console.log("click", new_product);
-    fetch(`http://localhost:5000/api/product/${product?.slug}`, {
+    fetch(`${REACT_APP_serverUrl}/product/${product?.slug}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

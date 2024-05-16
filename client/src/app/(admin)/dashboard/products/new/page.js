@@ -13,7 +13,7 @@ const NewProductPage = () => {
     const new_product = { title, url_title, image, price, weight, description };
     console.log(new_product);
 
-    fetch("http://localhost:5000/api/product", {
+    fetch(`${REACT_APP_serverUrl}/product`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

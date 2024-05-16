@@ -6,7 +6,7 @@ const ProductsListTable = ({ products }) => {
   const handleDelete = (product) => {
     const agree = window.confirm("Are you went delete - " + product?.title);
     if (agree) {
-      fetch(`http://localhost:5000/api/product/${product?.slug}`, {
+      fetch(`${REACT_APP_serverUrl}/product/${product?.slug}`, {
         method: "DELETE",
       })
         .then((response) => response.json())
