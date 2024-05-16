@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 
 const DynamicProductEditPage = async ({ params }) => {
   console.log(params.slug, "params");
-  const { payload: product } = await getSingleProduct(params?.slug);
+  const { payload: product } = await getSingleProduct(params?._id);
   console.log(product);
 
   const handleUpdateProduct = (event) => {
@@ -19,7 +19,7 @@ const DynamicProductEditPage = async ({ params }) => {
     const new_product = { title, url_title, image, price, weight, description };
     console.log("click", new_product);
     fetch(
-      `https://food-grain-server.onrender.com/api/product/${product?.slug}`,
+      `https://food-grain-server.onrender.com/api/product/${product?._id}`,
       {
         // fetch(`${process.env.REACT_APP_serverUrl}/product/${product?.slug}`, {
         method: "PUT",

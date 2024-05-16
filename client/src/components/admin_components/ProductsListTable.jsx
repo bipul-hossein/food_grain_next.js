@@ -2,12 +2,12 @@
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-const ProductsListTable = ({ products }) => {
+const ProductsListTable = ({ products, refetch }) => {
   const handleDelete = (product) => {
     const agree = window.confirm("Are you went delete - " + product?.title);
     if (agree) {
       fetch(
-        `https://food-grain-server.onrender.com/api/product/${product?.slug}`,
+        `https://food-grain-server.onrender.com/api/product/${product?._id}`,
         {
           method: "DELETE",
         }
@@ -16,6 +16,7 @@ const ProductsListTable = ({ products }) => {
         .then(({ payload, message, success }) => {
           console.log("Success:", payload);
           toast.success(payload.title + " " + message);
+          refetch();
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -43,7 +44,7 @@ const ProductsListTable = ({ products }) => {
             <td className="px-2 py-2 text-center">
               <Link
                 className="btn_sm mr-2"
-                href={`/dashboard/products/edit/${product?.slug}`}
+                href={`/dashboard/products/edit/${product?._id}`}
               >
                 Edit
               </Link>

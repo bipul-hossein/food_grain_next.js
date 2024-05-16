@@ -1,6 +1,7 @@
 const slugify = require("slugify");
 const Product = require("../models/productModel");
-const { successResponse } = require("./responseController");
+const { successResponse, errorResponse } = require("./responseController");
+const { Types, isValidObjectId } = require("mongoose");
 
 const handleCreateProduct = async (req, res, next) => {
   try {
@@ -92,13 +93,25 @@ const handleGetProducts = async (req, res, next) => {
 const handleGetSingleProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const getProduct = await Product.findOne({ slug: id }).lean();
-    // console.log(getProduct);
-    return successResponse(res, {
-      statusCode: 200,
-      message: "Product return success",
-      payload: getProduct,
-    });
+    const getProduct = await Product.findOne({
+      $or: [
+        { _id: isValidObjectId(id) ? new Types.ObjectId(id) : undefined },
+        { slug: id },
+      ],
+    }).lean();
+    console.log(getProduct);
+    if (getProduct) {
+      return successResponse(res, {
+        statusCode: 200,
+        message: "Product return success",
+        payload: getProduct,
+      });
+    } else {
+      return errorResponse(res, {
+        statusCode: 500,
+        message: "Product return failed",
+      });
+    }
   } catch (error) {
     next(error);
   }

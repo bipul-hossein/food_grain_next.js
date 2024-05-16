@@ -7,11 +7,7 @@ const bodyParser = require("body-parser");
 const createError = require("http-errors");
 const morgan = require("morgan");
 
-const {
-  successResponse,
-  errorResponse,
-} = require("./controllers/responseController");
-const Product = require("./models/productModel");
+const { errorResponse } = require("./controllers/responseController");
 const productRouter = require("./routes/productRouter");
 
 dotenv.config();
@@ -28,17 +24,19 @@ app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static("build"));
 
 //routes
 app.use("/api", productRouter);
 
 // connect to DataBase on server site
 // const url = `mongodb://localhost:27017/FoodGrainDB`;
+// const url = process.env.DB_URL;
 const url = process.env.DB_URL_AN;
 const connectDB = async () => {
   try {
-    // await mongoose.connect(url);
-    await mongoose.connect(url, { dbName: "food_grainDB" });
+    await mongoose.connect(url, { dbName: "food_grain" });
+    // await mongoose.connect(url, { dbName: "food_grainDB" });
     console.log("Database is connected now");
   } catch (error) {
     console.log("Database is not connected", error);
