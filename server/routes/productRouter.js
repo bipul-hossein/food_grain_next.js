@@ -4,6 +4,7 @@ const {
   handleGetSingleProduct,
   handleCreateProduct,
   handleUpdateProduct,
+  handleDeleteProduct,
 } = require("../controllers/productsController");
 
 const productRouter = express.Router();
@@ -21,6 +22,6 @@ productRouter.get("/products", handleGetProducts);
 productRouter.put("/product/:id", handleUpdateProduct);
 
 //Delete:api/id single product by product id
-// productRouter.delete("/products/:id", handleDeleteProduct);
+productRouter.delete("/product/:id", handleDeleteProduct);
 
 module.exports = productRouter;

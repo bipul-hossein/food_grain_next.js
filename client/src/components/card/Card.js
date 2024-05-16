@@ -30,7 +30,7 @@ const Card = ({ data, icon }) => {
           //   onClick={() => handleNavigate(data)}
           className="hover:cursor-pointer overflow-hidden rounded-sm flex justify-center"
         >
-          <Link href={`product/${data?.url_title}`}>
+          <Link href={`product/${data?.slug}`}>
             <Image
               src={data?.image}
               alt="product image"
@@ -47,7 +47,7 @@ const Card = ({ data, icon }) => {
           /> */}
         </div>
       </div>
-      <Link href={`product/${data?.url_title}`}>
+      <Link href={`product/${data?.slug}`}>
         <h2
           // onClick={() => handleNavigate(data)}
           className="hover:cursor-pointer text-sm md:text-base font-medium md:font-semibold md:tracking-[-.2px] mt-2"

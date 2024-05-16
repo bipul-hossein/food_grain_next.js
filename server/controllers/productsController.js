@@ -104,9 +104,27 @@ const handleGetSingleProduct = async (req, res, next) => {
   }
 };
 
+const handleDeleteProduct = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deleteProduct = await Product.findOneAndDelete({ slug: id });
+    console.log(id, "hit");
+    if (!deleteProduct) {
+      throw createError(404, "Product not found");
+    }
+    return successResponse(res, {
+      statusCode: 200,
+      message: "Product was Deleted successfully",
+      payload: deleteProduct,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 module.exports = {
   handleGetProducts,
   handleGetSingleProduct,
   handleCreateProduct,
   handleUpdateProduct,
+  handleDeleteProduct,
 };

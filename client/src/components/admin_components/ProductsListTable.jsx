@@ -1,13 +1,25 @@
 "use client";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const ProductsListTable = ({ products }) => {
   const handleDelete = (product) => {
     const agree = window.confirm("Are you went delete - " + product?.title);
     if (agree) {
-      alert("delete");
+      fetch(`http://localhost:5000/api/product/${product?.slug}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then(({ payload, message, success }) => {
+          console.log("Success:", payload);
+          toast.success(payload.title + " " + message);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          toast.error(error);
+        });
     } else {
-      alert("error");
+      toast.error("Try again");
     }
   };
 

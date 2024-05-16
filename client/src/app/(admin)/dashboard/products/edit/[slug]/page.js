@@ -1,5 +1,6 @@
 "use client";
 import { getSingleProduct } from "@/utils/getSingleProduct";
+import { toast } from "react-hot-toast";
 
 const DynamicProductEditPage = async ({ params }) => {
   console.log(params.slug, "params");
@@ -25,13 +26,16 @@ const DynamicProductEditPage = async ({ params }) => {
       body: JSON.stringify(new_product),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
+      .then(({ payload, message, success }) => {
+        console.log("Success:", payload);
+        toast.success(payload.title + " " + message);
+
         // const newStudent = [...studentsData, data];
         // setStudentsData(newStudent)
       })
       .catch((error) => {
         console.error("Error:", error);
+        // toast.success(payload.title + " " + message);
       });
     form.reset();
   };

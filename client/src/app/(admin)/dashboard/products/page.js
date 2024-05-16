@@ -1,3 +1,4 @@
+"use client";
 import ProductsListTable from "@/components/admin_components/ProductsListTable";
 import { getAllProducts } from "@/utils/getAllProducts";
 import Link from "next/link";
