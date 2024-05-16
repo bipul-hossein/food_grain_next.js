@@ -18,13 +18,17 @@ const DynamicProductEditPage = async ({ params }) => {
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
     console.log("click", new_product);
-    fetch(`${REACT_APP_serverUrl}/product/${product?.slug}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(new_product),
-    })
+    fetch(
+      `https://food-grain-server.onrender.com/api/product/${product?.slug}`,
+      {
+        // fetch(`${process.env.REACT_APP_serverUrl}/product/${product?.slug}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(new_product),
+      }
+    )
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
         console.log("Success:", payload);
@@ -35,6 +39,7 @@ const DynamicProductEditPage = async ({ params }) => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        toast.success(error);
         // toast.success(payload.title + " " + message);
       });
     form.reset();

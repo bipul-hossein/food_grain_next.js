@@ -13,7 +13,7 @@ const NewProductPage = () => {
     const new_product = { title, url_title, image, price, weight, description };
     console.log(new_product);
 
-    fetch(`${REACT_APP_serverUrl}/product`, {
+    fetch(`https://food-grain-server.onrender.com/api/product`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -21,13 +21,15 @@ const NewProductPage = () => {
       body: JSON.stringify(new_product),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then(({ payload, message, success }) => {
         console.log("Success:", data);
+        toast.success(payload.title + " " + message);
         // const newStudent = [...studentsData, data];
         // setStudentsData(newStudent)
       })
       .catch((error) => {
         console.error("Error:", error);
+        toast.success(error);
       });
     form.reset();
   };
@@ -35,8 +37,6 @@ const NewProductPage = () => {
   return (
     <div>
       <h2 className="text-xl font-medium">Add New Product</h2>
-      {/* <p className="text-blue-500"> {product?.title}</p> */}
-      {/* <form onSubmit={handleUpdateProduct} className="my-2"> */}
       <form onSubmit={handleCreateProduct} className="my-2">
         <div className="form-control w-full mt-3">
           <label className="label">

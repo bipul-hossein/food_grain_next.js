@@ -13,7 +13,7 @@ const HomePage = async () => {
     <main className="min-h-screen">
       <Banner />
       <Products />
-      <ReduxText />
+      {/* <ReduxText /> */}
     </main>
   );
 };
