@@ -7,7 +7,7 @@ const handleCreateProduct = async (req, res, next) => {
     const { title, url_title, image, price, weight, description } = req.body;
     // console.log(title, image, price, weight, description);
     const exitingProduct = await Product.findOne({ title: title });
-    console.log(url_title, " 4654 629");
+    // console.log(url_title, " 4654 629");
     if (!exitingProduct) {
       const newProduct = await Product.create({
         title,
@@ -77,7 +77,7 @@ const handleUpdateProduct = async (req, res, next) => {
 const handleGetProducts = async (req, res, next) => {
   try {
     const getProducts = await Product.find({}).lean();
-    console.log(getProducts);
+    // console.log(getProducts);
 
     return successResponse(res, {
       statusCode: 200,
@@ -108,7 +108,7 @@ const handleDeleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
     const deleteProduct = await Product.findOneAndDelete({ slug: id });
-    console.log(id, "hit");
+    // console.log(id, "hit");
     if (!deleteProduct) {
       throw createError(404, "Product not found");
     }
