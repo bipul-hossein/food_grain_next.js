@@ -1,4 +1,5 @@
 "use client";
+import { toast } from "react-hot-toast";
 
 const NewProductPage = () => {
   const handleCreateProduct = (event) => {
@@ -22,7 +23,7 @@ const NewProductPage = () => {
     })
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
-        console.log("Success:", data);
+        console.log("Success:", payload);
         toast.success(payload.title + " " + message);
         // const newStudent = [...studentsData, data];
         // setStudentsData(newStudent)
