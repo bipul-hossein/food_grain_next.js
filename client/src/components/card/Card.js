@@ -36,7 +36,7 @@ const Card = ({ data, icon }) => {
               alt="product image"
               width={700}
               height={700}
-              className="w-72 h-72 object-contain"
+              className="w-72 object-contain md:aspect-square"
             />
           </Link>
           {/* <img
