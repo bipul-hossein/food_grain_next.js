@@ -1,12 +1,21 @@
 "use client";
-import { getSingleProduct } from "@/utils/getSingleProduct";
 import { toast } from "react-hot-toast";
+import { useQuery } from "react-query";
 
-const DynamicProductEditPage = async ({ params }) => {
-  console.log(params, "params");
-  const { payload: product } = await getSingleProduct(params?.slug);
-  console.log(product);
-
+const DynamicProductEditPage = ({ params }) => {
+  console.log(process.env.NEXT_PUBLIC_serverUrl);
+  const { data: product = [], refetch } = useQuery({
+    queryKey: ["productData"],
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_serverUrl}/product/${params.id}`,
+        { cache: "no-store" }
+      );
+      const data = await res.json();
+      return data.payload;
+    },
+  });
+  console.log(product, "22");
   const handleUpdateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,22 +27,19 @@ const DynamicProductEditPage = async ({ params }) => {
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
     console.log("click", new_product);
-    fetch(
-      `https://food-grain-server.onrender.com/api/product/${product?._id}`,
-      {
-        // fetch(`${process.env.REACT_APP_serverUrl}/product/${product?.slug}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(new_product),
-      }
-    )
+    fetch(`${process.env.NEXT_PUBLIC_serverUrl}/product/${product?._id}`, {
+      // fetch(`${process.env.REACT_APP_serverUrl}/product/${product?.slug}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(new_product),
+    })
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
         console.log("Success:", payload);
         toast.success(payload.title + " " + message);
-
+        refetch();
         // const newStudent = [...studentsData, data];
         // setStudentsData(newStudent)
       })

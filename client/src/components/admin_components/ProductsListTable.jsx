@@ -6,12 +6,9 @@ const ProductsListTable = ({ products, refetch }) => {
   const handleDelete = (product) => {
     const agree = window.confirm("Are you went delete - " + product?.title);
     if (agree) {
-      fetch(
-        `https://food-grain-server.onrender.com/api/product/${product?._id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`${process.env.NEXT_PUBLIC_serverUrl}/product/${product?._id}`, {
+        method: "DELETE",
+      })
         .then((response) => response.json())
         .then(({ payload, message, success }) => {
           console.log("Success:", payload);

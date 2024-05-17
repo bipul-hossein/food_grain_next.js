@@ -1,7 +1,6 @@
 "use client";
 
 import ProductsListTable from "@/components/admin_components/ProductsListTable";
-import { getAllProduct } from "@/utils/getAllProducts";
 import Link from "next/link";
 import { useQuery } from "react-query";
 
@@ -10,10 +9,9 @@ const ProductsPage = () => {
   const { data: products = [], refetch } = useQuery({
     queryKey: ["productsData"],
     queryFn: async () => {
-      const res = await fetch(
-        `https://food-grain-server.onrender.com/api/products`,
-        { cache: "no-store" }
-      );
+      const res = await fetch(`${process.env.NEXT_PUBLIC_serverUrl}/products`, {
+        cache: "no-store",
+      });
       const data = await res.json();
       return data.payload;
     },

@@ -35,46 +35,6 @@ const handleCreateProduct = async (req, res, next) => {
   }
 };
 
-const handleUpdateProduct = async (req, res, next) => {
-  try {
-    const { title, url_title, image, price, weight, description } = req.body;
-    // console.log(title, url_title, image, price, weight, description);
-    const { id } = req.params;
-    // console.log(id);
-    const filter = { slug: id };
-    const updates = {
-      $set: {
-        title,
-        slug: slugify(url_title),
-        image,
-        price,
-        weight,
-        description,
-      },
-    };
-    const option = {
-      new: true,
-    };
-    const updateProduct = await Product.findOneAndUpdate(
-      filter,
-      updates,
-      option
-    );
-
-    if (!updateProduct) {
-      throw createError(404, "Product not found");
-    }
-
-    return successResponse(res, {
-      statusCode: 200,
-      message: "Product was updated successfully",
-      payload: updateProduct,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
 const handleGetProducts = async (req, res, next) => {
   try {
     const getProducts = await Product.find({}).lean();
@@ -117,10 +77,50 @@ const handleGetSingleProduct = async (req, res, next) => {
   }
 };
 
+const handleUpdateProduct = async (req, res, next) => {
+  try {
+    const { title, url_title, image, price, weight, description } = req.body;
+    // console.log(title, url_title, image, price, weight, description);
+    const { id } = req.params;
+    // console.log(id);
+    const filter = { _id: id };
+    const updates = {
+      $set: {
+        title,
+        slug: slugify(url_title),
+        image,
+        price,
+        weight,
+        description,
+      },
+    };
+    const option = {
+      new: true,
+    };
+    const updateProduct = await Product.findOneAndUpdate(
+      filter,
+      updates,
+      option
+    );
+
+    if (!updateProduct) {
+      throw createError(404, "Product not found");
+    }
+
+    return successResponse(res, {
+      statusCode: 200,
+      message: "Product was updated successfully",
+      payload: updateProduct,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const handleDeleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deleteProduct = await Product.findOneAndDelete({ slug: id });
+    const deleteProduct = await Product.findOneAndDelete({ _id: id });
     // console.log(id, "hit");
     if (!deleteProduct) {
       throw createError(404, "Product not found");
