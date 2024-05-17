@@ -3,8 +3,8 @@ import { getSingleProduct } from "@/utils/getSingleProduct";
 import { toast } from "react-hot-toast";
 
 const DynamicProductEditPage = async ({ params }) => {
-  console.log(params.slug, "params");
-  const { payload: product } = await getSingleProduct(params?._id);
+  console.log(params, "params");
+  const { payload: product } = await getSingleProduct(params?.slug);
   console.log(product);
 
   const handleUpdateProduct = (event) => {
