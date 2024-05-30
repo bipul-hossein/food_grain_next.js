@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 
 const DynamicProductEditPage = ({ params }) => {
-  console.log(process.env.NEXT_PUBLIC_serverUrl);
+  // console.log(process.env.NEXT_PUBLIC_serverUrl);
   const { data: product = [], refetch } = useQuery({
     queryKey: ["productData"],
     queryFn: async () => {
@@ -15,7 +15,7 @@ const DynamicProductEditPage = ({ params }) => {
       return data.payload;
     },
   });
-  console.log(product, "22");
+  // console.log(product, "22");
   const handleUpdateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -26,7 +26,7 @@ const DynamicProductEditPage = ({ params }) => {
     const weight = form.weight.value;
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
-    console.log("click", new_product);
+    // console.log("click", new_product);
     fetch(`${process.env.NEXT_PUBLIC_serverUrl}/product/${product?._id}`, {
       // fetch(`${process.env.REACT_APP_serverUrl}/product/${product?.slug}`, {
       method: "PUT",
@@ -37,7 +37,7 @@ const DynamicProductEditPage = ({ params }) => {
     })
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
-        console.log("Success:", payload);
+        // console.log("Success:", payload);
         toast.success(payload.title + " " + message);
         refetch();
         // const newStudent = [...studentsData, data];

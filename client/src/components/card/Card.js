@@ -1,12 +1,16 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-
-// import { ProductContext } from "../../../contexts/ProductsProvider";
+import { addToCart } from "@/redux/features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({ data, icon }) => {
-  // console.log(data);
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state?.cart);
+
+  const findCartItem = products?.find((item) => item?._id === data?._id);
 
   return (
     <div className="group flex flex-col rounded-md justify-between w-full bg-white p-2 md:p-4 border-[1px] hover:border-[#fa6602] relative ">
@@ -36,15 +40,10 @@ const Card = ({ data, icon }) => {
               alt="product image"
               width={700}
               height={700}
+              // priority={true}
               className="w-72 object-contain md:aspect-square"
             />
           </Link>
-          {/* <img
-            className="aspect-square w-full min-h-[210px] group-hover:scale-110 duration-700 ease-in-out"
-            src={data?.image}
-            alt=""
-            loading="lazy"
-          /> */}
         </div>
       </div>
       <Link href={`product/${data?.slug}`}>
@@ -59,18 +58,16 @@ const Card = ({ data, icon }) => {
         <span className="text-xs md:text-sm whitespace-no-wrap text-[#fa6602] leading-6 font-bold">
           ৳{data?.price} tk
         </span>
-        {/* <span className="ml-2 text-xs md:text-sm text-[#132a36] opacity-50  line-through pl-1">
-        ৳354
-      </span> */}
       </div>
       <button
-      // disabled={findCartItem}
-      // onClick={() => handleAddToLocalStorage(data)}
-      // className={`py-[4px] md:py-[8px] px-[8px] md:px-[14px] text-[13px] md:text-sm rounded-[4px] md:rounded-md text-white duration-500 ${
-      //   findCartItem ? "bg-gray-600" : "bg-primary hover:bg-[#fa6602]"
-      // }`}
+        // className="btn"
+        onClick={() => dispatch(addToCart({ ...data, quantity: 1 }))}
+        disabled={findCartItem?.findCartItem}
+        className={`py-[4px] md:py-[8px] px-[8px] md:px-[14px] text-[13px] md:text-sm rounded-[4px] md:rounded-md text-white duration-500 ${
+          findCartItem ? "bg-gray-600" : "bg-blue-700 hover:bg-[#fa6602]"
+        }`}
       >
-        {/* {findCartItem ? "Added" : "Add to Cart"} */}
+        {findCartItem ? "Added" : "Add to Cart"}
       </button>
     </div>
   );

@@ -9,6 +9,7 @@ const ProductImage = ({ product }) => {
         alt="Product Image"
         width={500}
         height={500}
+        priority={true}
         className="rounded-lg"
       />
     </div>

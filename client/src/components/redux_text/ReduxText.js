@@ -15,7 +15,7 @@ const ReduxText = () => {
         >
           -
         </button>
-        <span className="text-5xl">{count}</span>
+        <span className="text-5xl">count: {count}</span>
         <button
           className="text-5xl"
           aria-label="Increment value"

@@ -9,6 +9,7 @@ const morgan = require("morgan");
 
 const { errorResponse } = require("./controllers/responseController");
 const productRouter = require("./routes/productRouter");
+const ordersRouter = require("./routes/ordersRouter");
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(express.static("build"));
 
 //routes
 app.use("/api", productRouter);
+app.use("/api", ordersRouter);
 
 // connect to DataBase on server site
 // const url = `mongodb://localhost:27017/FoodGrainDB`;

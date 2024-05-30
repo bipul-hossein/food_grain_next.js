@@ -66,10 +66,6 @@ const Navbar = () => {
       title: "Cart",
       link: "/cart",
     },
-    {
-      title: "Register",
-      link: "/register",
-    },
   ];
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-400 sticky top-0 z-50">

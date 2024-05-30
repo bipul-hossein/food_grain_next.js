@@ -48,7 +48,7 @@ const Banner = () => {
         {bannerItems.map((item, i) => (
           <SwiperSlide key={i}>
             <div>
-              <Image src={item?.img} />
+              <Image src={item?.img} alt="" />
             </div>
           </SwiperSlide>
         ))}

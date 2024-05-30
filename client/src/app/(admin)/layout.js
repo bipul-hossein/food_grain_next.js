@@ -11,11 +11,11 @@ export const metadata = {
 export default function AdminLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-display bg-red-50">
+      <body suppressHydrationWarning={true} className="font-display bg-red-50">
         <Layout>
           <div className="min-h-screen w-9/12 mx-auto bg-white flex flex-row">
             <AdminNav />
-            <div className="mt-4 md:w-[80%] mx-3">{children}</div>
+            <div className="mt-4 w-full md:w-[80%] mx-3">{children}</div>
           </div>
           <Footer />
         </Layout>

@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="py-12">
               <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
                 <div className="lg:col-span-4 md:col-span-12">
-                  <Link href="#" lassName="text-2xl focus:outline-none">
+                  <Link href="#" className="text-2xl focus:outline-none">
                     <Image
                       className="h-12 w-auto"
                       src={logo}

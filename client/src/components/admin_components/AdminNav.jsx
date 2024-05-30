@@ -23,7 +23,7 @@ const AdminNav = () => {
     },
   ];
   return (
-    <div className="px-4 bg-slate-100 ">
+    <div className="md:px-4 bg-slate-100 ">
       <div className="hidden md:inline-flex md:flex-col items-start gap-2 min-h-full pt-10">
         {adminNavBarList.map((item, i) => (
           <Link
