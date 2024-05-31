@@ -1,6 +1,6 @@
 import Products from "@/components/all_product/Products";
 import Banner from "@/components/banner/Banner";
-import ReduxText from "@/components/redux_text/ReduxText";
+import PageButton from "@/components/page_button/PageButton";
 import Head from "next/head";
 
 const HomePage = async () => {
@@ -12,8 +12,8 @@ const HomePage = async () => {
   return (
     <main className="min-h-screen">
       <Banner />
+      <PageButton />
       <Products />
-      {/* <ReduxText /> */}
     </main>
   );
 };

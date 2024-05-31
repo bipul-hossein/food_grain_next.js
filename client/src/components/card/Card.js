@@ -40,7 +40,7 @@ const Card = ({ data, icon }) => {
               alt="product image"
               width={700}
               height={700}
-              // priority={true}
+              priority={false}
               className="w-72 object-contain md:aspect-square"
             />
           </Link>
