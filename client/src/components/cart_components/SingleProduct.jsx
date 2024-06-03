@@ -78,33 +78,33 @@ const SingleProduct = ({ product }) => {
 export default SingleProduct;
 
 {
-  /* <div class="font-sans max-w-5xl max-md:max-w-xl mx-auto bg-white py-4">
-  <h1 class="text-2xl font-bold text-gray-800 text-center">Shopping Cart</h1>
-  <div class="grid md:grid-cols-3 gap-8 mt-12">
-    <div class="md:col-span-2 space-y-4">
+  /* <div className="font-sans max-w-5xl max-md:max-w-xl mx-auto bg-white py-4">
+  <h1 className="text-2xl font-bold text-gray-800 text-center">Shopping Cart</h1>
+  <div className="grid md:grid-cols-3 gap-8 mt-12">
+    <div className="md:col-span-2 space-y-4">
 
 
 
-      <div class="grid grid-cols-3 items-start gap-4">
-        <div class="col-span-2 flex items-start gap-4">
-          <div class="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
+      <div className="grid grid-cols-3 items-start gap-4">
+        <div className="col-span-2 flex items-start gap-4">
+          <div className="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
             <img
               src="https://readymadeui.com/images/product14.webp"
-              class="w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
           <div>
-            <h3 class="text-base font-bold text-gray-800">Velvet Sneaker</h3>
-            <p class="text-xs font-semibold text-gray-500 mt-0.5">Size: MD</p>
+            <h3 className="text-base font-bold text-gray-800">Velvet Sneaker</h3>
+            <p className="text-xs font-semibold text-gray-500 mt-0.5">Size: MD</p>
 
             <button
               type="button"
-              class="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
+              className="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 fill-current inline"
+                className="w-4 fill-current inline"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -121,16 +121,16 @@ export default SingleProduct;
           </div>
         </div>
 
-        <div class="ml-auto">
-          <h4 class="text-lg font-bold text-gray-800">$20.00</h4>
+        <div className="ml-auto">
+          <h4 className="text-lg font-bold text-gray-800">$20.00</h4>
 
           <button
             type="button"
-            class="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
+            className="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 124 124"
             >
               <path
@@ -139,10 +139,10 @@ export default SingleProduct;
               ></path>
             </svg>
 
-            <span class="mx-3 font-bold">2</span>
+            <span className="mx-3 font-bold">2</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 42 42"
             >
               <path
@@ -154,28 +154,28 @@ export default SingleProduct;
         </div>
       </div>
 
-      <hr class="border-gray-300" />
+      <hr className="border-gray-300" />
 
-      <div class="grid grid-cols-3 items-start gap-4">
-        <div class="col-span-2 flex items-start gap-4">
-          <div class="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
+      <div className="grid grid-cols-3 items-start gap-4">
+        <div className="col-span-2 flex items-start gap-4">
+          <div className="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
             <img
               src="https://readymadeui.com/images/watch6.webp"
-              class="w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
           <div>
-            <h3 class="text-base font-bold text-gray-800">Smart Watch Timex</h3>
-            <p class="text-xs font-semibold text-gray-500 mt-0.5">Size: SM</p>
+            <h3 className="text-base font-bold text-gray-800">Smart Watch Timex</h3>
+            <p className="text-xs font-semibold text-gray-500 mt-0.5">Size: SM</p>
 
             <button
               type="button"
-              class="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
+              className="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 fill-current inline"
+                className="w-4 fill-current inline"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -192,16 +192,16 @@ export default SingleProduct;
           </div>
         </div>
 
-        <div class="ml-auto">
-          <h4 class="text-lg font-bold text-gray-800">$60.00</h4>
+        <div className="ml-auto">
+          <h4 className="text-lg font-bold text-gray-800">$60.00</h4>
 
           <button
             type="button"
-            class="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
+            className="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 124 124"
             >
               <path
@@ -210,10 +210,10 @@ export default SingleProduct;
               ></path>
             </svg>
 
-            <span class="mx-3 font-bold">1</span>
+            <span className="mx-3 font-bold">1</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 42 42"
             >
               <path
@@ -225,28 +225,28 @@ export default SingleProduct;
         </div>
       </div>
 
-      <hr class="border-gray-300" />
+      <hr className="border-gray-300" />
 
-      <div class="grid grid-cols-3 items-start gap-4">
-        <div class="col-span-2 flex items-start gap-4">
-          <div class="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
+      <div className="grid grid-cols-3 items-start gap-4">
+        <div className="col-span-2 flex items-start gap-4">
+          <div className="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
             <img
               src="https://readymadeui.com/images/watch1.webp"
-              class="w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
           <div>
-            <h3 class="text-base font-bold text-gray-800">French Connection</h3>
-            <p class="text-xs font-semibold text-gray-500 mt-0.5">Size: LG</p>
+            <h3 className="text-base font-bold text-gray-800">French Connection</h3>
+            <p className="text-xs font-semibold text-gray-500 mt-0.5">Size: LG</p>
 
             <button
               type="button"
-              class="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
+              className="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 fill-current inline"
+                className="w-4 fill-current inline"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -263,16 +263,16 @@ export default SingleProduct;
           </div>
         </div>
 
-        <div class="ml-auto">
-          <h4 class="text-lg font-bold text-gray-800">$40.00</h4>
+        <div className="ml-auto">
+          <h4 className="text-lg font-bold text-gray-800">$40.00</h4>
 
           <button
             type="button"
-            class="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
+            className="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 124 124"
             >
               <path
@@ -281,10 +281,10 @@ export default SingleProduct;
               ></path>
             </svg>
 
-            <span class="mx-3 font-bold">1</span>
+            <span className="mx-3 font-bold">1</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 42 42"
             >
               <path
@@ -296,28 +296,28 @@ export default SingleProduct;
         </div>
       </div>
 
-      <hr class="border-gray-300" />
+      <hr className="border-gray-300" />
 
-      <div class="grid grid-cols-3 items-start gap-4">
-        <div class="col-span-2 flex items-start gap-4">
-          <div class="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
+      <div className="grid grid-cols-3 items-start gap-4">
+        <div className="col-span-2 flex items-start gap-4">
+          <div className="w-28 h-28 max-sm:w-20 max-sm:h-20 shrink-0 bg-gray-100 p-1 rounded-sm">
             <img
               src="https://readymadeui.com/images/watch2.webp"
-              class="w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
 
           <div>
-            <h3 class="text-base font-bold text-gray-800">Smart Watch</h3>
-            <p class="text-xs font-semibold text-gray-500 mt-0.5">Size: LG</p>
+            <h3 className="text-base font-bold text-gray-800">Smart Watch</h3>
+            <p className="text-xs font-semibold text-gray-500 mt-0.5">Size: LG</p>
 
             <button
               type="button"
-              class="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
+              className="mt-4 font-semibold text-red-500 text-xs flex items-center gap-1 shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 fill-current inline"
+                className="w-4 fill-current inline"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -334,16 +334,16 @@ export default SingleProduct;
           </div>
         </div>
 
-        <div class="ml-auto">
-          <h4 class="text-lg font-bold text-gray-800">$60.00</h4>
+        <div className="ml-auto">
+          <h4 className="text-lg font-bold text-gray-800">$60.00</h4>
 
           <button
             type="button"
-            class="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
+            className="mt-4 flex items-center px-3 py-1.5 border border-gray-300 text-gray-800 text-xs outline-none bg-transparent rounded-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 124 124"
             >
               <path
@@ -352,10 +352,10 @@ export default SingleProduct;
               ></path>
             </svg>
 
-            <span class="mx-3 font-bold">1</span>
+            <span className="mx-3 font-bold">1</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-2.5 fill-current"
+              className="w-2.5 fill-current"
               viewBox="0 0 42 42"
             >
               <path
@@ -368,26 +368,26 @@ export default SingleProduct;
       </div>
     </div>
 
-    <div class="bg-gray-100 rounded-sm p-4 h-max">
-      <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-2">
+    <div className="bg-gray-100 rounded-sm p-4 h-max">
+      <h3 className="text-lg font-bold text-gray-800 border-b border-gray-300 pb-2">
         Order Summary
       </h3>
 
-      <form class="mt-4">
+      <form className="mt-4">
         <div>
-          <h3 class="text-base text-gray-800 mb-2">Enter Details</h3>
-          <div class="space-y-2">
-            <div class="relative flex items-center">
+          <h3 className="text-base text-gray-800 mb-2">Enter Details</h3>
+          <div className="space-y-2">
+            <div className="relative flex items-center">
               <input
                 type="text"
                 placeholder="Full Name"
-                class="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
+                className="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#bbb"
                 stroke="#bbb"
-                class="w-4 h-4 absolute right-4"
+                className="w-4 h-4 absolute right-4"
                 viewBox="0 0 24 24"
               >
                 <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
@@ -398,17 +398,17 @@ export default SingleProduct;
               </svg>
             </div>
 
-            <div class="relative flex items-center">
+            <div className="relative flex items-center">
               <input
                 type="email"
                 placeholder="Email"
-                class="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
+                className="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#bbb"
                 stroke="#bbb"
-                class="w-4 h-4 absolute right-4"
+                className="w-4 h-4 absolute right-4"
                 viewBox="0 0 682.667 682.667"
               >
                 <defs>
@@ -435,15 +435,15 @@ export default SingleProduct;
               </svg>
             </div>
 
-            <div class="relative flex items-center">
+            <div className="relative flex items-center">
               <input
                 type="number"
                 placeholder="Phone No."
-                class="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
+                className="px-4 py-2.5 bg-white text-gray-800 w-full text-sm border-b focus:border-gray-800 outline-none"
               />
               <svg
                 fill="#bbb"
-                class="w-4 h-4 absolute right-4"
+                className="w-4 h-4 absolute right-4"
                 viewBox="0 0 64 64"
               >
                 <path
@@ -456,32 +456,32 @@ export default SingleProduct;
         </div>
       </form>
 
-      <ul class="text-gray-800 mt-4 space-y-2">
-        <li class="flex flex-wrap gap-4 text-sm">
-          Subtotal <span class="ml-auto font-bold">$200.00</span>
+      <ul className="text-gray-800 mt-4 space-y-2">
+        <li className="flex flex-wrap gap-4 text-sm">
+          Subtotal <span className="ml-auto font-bold">$200.00</span>
         </li>
-        <li class="flex flex-wrap gap-4 text-sm">
-          Shipping <span class="ml-auto font-bold">$2.00</span>
+        <li className="flex flex-wrap gap-4 text-sm">
+          Shipping <span className="ml-auto font-bold">$2.00</span>
         </li>
-        <li class="flex flex-wrap gap-4 text-sm">
-          Tax <span class="ml-auto font-bold">$4.00</span>
+        <li className="flex flex-wrap gap-4 text-sm">
+          Tax <span className="ml-auto font-bold">$4.00</span>
         </li>
-        <hr class="border-gray-300" />
-        <li class="flex flex-wrap gap-4 text-sm font-bold">
-          Total <span class="ml-auto">$206.00</span>
+        <hr className="border-gray-300" />
+        <li className="flex flex-wrap gap-4 text-sm font-bold">
+          Total <span className="ml-auto">$206.00</span>
         </li>
       </ul>
 
-      <div class="mt-4 space-y-2">
+      <div className="mt-4 space-y-2">
         <button
           type="button"
-          class="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-sm"
+          className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-sm"
         >
           Checkout
         </button>
         <button
           type="button"
-          class="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-sm"
+          className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-800 border border-gray-300 rounded-sm"
         >
           Continue Shopping{" "}
         </button>

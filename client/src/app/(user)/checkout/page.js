@@ -1,7 +1,6 @@
 "use client";
 
 import { calculateTotals } from "@/redux/features/cart/cartSlice";
-import Link from "next/link";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +15,7 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     dispatch(calculateTotals());
-  }, [products]);
+  }, [dispatch]);
 
   const handleCheckout = (e) => {
     e.preventDefault();

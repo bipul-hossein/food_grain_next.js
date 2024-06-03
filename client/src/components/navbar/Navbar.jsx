@@ -1,55 +1,18 @@
-// import Image from "next/image";
-// import logo from "../../../public/Food_Grain.png";
-
-// const Navbar = () => {
-//   return (
-//     <div className=" w-full bg-white">
-//       {/* // <!-- component --> */}
-//       <header className=" md:w-10/12 mx-auto">
-//         <div className="container mx-auto px-4 py-2 md:py-8 flex  justify-between items-center">
-//           {/* <!-- logo --> */}
-//           <div className="mr-auto md:w-48 flex-shrink-0">
-//             <Image className="" src={logo} alt="" />
-//           </div>
-
-//           {/* <!-- search --> */}
-//           <div className="w-full max-w-xs xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
-//             <input
-//               className="border-l border-gray-300 bg-transparent font-semibold text-sm pl-4 py-3"
-//               type="text"
-//               placeholder="I'm searching for ..."
-//             />
-//           </div>
-
-//           {/* <!-- phone number --> */}
-//           <div className="ml-auto md:w-48 flex flex-col place-items-end">
-//             <span className="font-bold md:text-xl">01401-918242</span>
-//             <span className="font-semibold text-sm text-gray-400">
-//               Support 24/7
-//             </span>
-//           </div>
-//         </div>
-//         <hr />
-//       </header>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
-
 "use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/Food_Grain.png";
 import { FaSearch } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { HiMenuAlt2, HiOutlineShoppingBag } from "react-icons/hi";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
 // import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { products } = useSelector((state) => state.cart);
   const [searchQuery, setSearchQuery] = useState("");
   // const { data: session } = useSession();
 
@@ -112,7 +75,18 @@ const Navbar = () => {
           )} */}
           {/* try to update */}
         </div>
-        <HiMenuAlt2 className="inline-flex md:hidden cursor-pointer w-8 h-6" />
+        <div className="flex justify-center items-center gap-4">
+          <Link
+            href={"/cart"}
+            className="inline-flex md:hidden cursor-pointer relative"
+          >
+            <HiOutlineShoppingBag className="text-2xl " />
+            <p className="absolute top-[1px] right-[17px] bg-primeColor text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold bg-orange-300 text-black">
+              {products ? products.length : 0}
+            </p>
+          </Link>
+          <HiMenuAlt2 className="inline-flex md:hidden cursor-pointer w-8 h-6" />
+        </div>
       </nav>
     </div>
   );

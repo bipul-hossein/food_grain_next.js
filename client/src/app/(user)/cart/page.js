@@ -17,7 +17,7 @@ const CartPage = () => {
 
   useEffect(() => {
     dispatch(calculateTotals());
-  }, [products]);
+  }, [dispatch]);
 
   return (
     <div className="font-sans max-w-5xl max-md:max-w-xl mx-auto bg-white py-8">
@@ -41,28 +41,29 @@ const CartPage = () => {
             </div>
           </div>
           {/* order summary */}
-          <div class="bg-gray-100 rounded-sm p-4 h-max">
-            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-2">
+          <div className="bg-gray-100 rounded-sm p-4 h-max">
+            <h3 className="text-lg font-bold text-gray-800 border-b border-gray-300 pb-2">
               Order Summary
             </h3>
-            <ul class="text-gray-800 mt-4 space-y-2">
-              <li class="flex flex-wrap gap-4 text-sm">
-                Subtotal <span class="ml-auto font-bold">{totalAmount}</span>
+            <ul className="text-gray-800 mt-4 space-y-2">
+              <li className="flex flex-wrap gap-4 text-sm">
+                Subtotal{" "}
+                <span className="ml-auto font-bold">{totalAmount}</span>
               </li>
-              <li class="flex flex-wrap gap-4 text-sm">
-                Shipping <span class="ml-auto font-bold">100</span>
+              <li className="flex flex-wrap gap-4 text-sm">
+                Shipping <span className="ml-auto font-bold">100</span>
               </li>
-              <hr class="border-gray-300" />
-              <li class="flex flex-wrap gap-4 text-sm font-bold">
-                Total <span class="ml-auto">{totalAmount + 100}</span>
+              <hr className="border-gray-300" />
+              <li className="flex flex-wrap gap-4 text-sm font-bold">
+                Total <span className="ml-auto">{totalAmount + 100}</span>
               </li>
             </ul>
 
-            <div class="mt-4 space-y-2">
+            <div className="mt-4 space-y-2">
               <Link
                 style={{ display: "inline-block" }}
                 href={"/checkout"}
-                class="text-sm text-center px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-sm"
+                className="text-sm text-center px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-sm"
               >
                 Checkout
               </Link>
@@ -70,7 +71,7 @@ const CartPage = () => {
                 style={{ display: "inline-block" }}
                 href={"/shop"}
                 type="button"
-                class="text-sm px-4 py-2.5 w-full text-center font-semibold tracking-wide text-gray-800 bg-transparent hover:bg-gray-900 hover:text-white border border-gray-300 rounded-sm"
+                className="text-sm px-4 py-2.5 w-full text-center font-semibold tracking-wide text-gray-800 bg-transparent hover:bg-gray-900 hover:text-white border border-gray-300 rounded-sm"
               >
                 Continue Shopping{" "}
               </Link>

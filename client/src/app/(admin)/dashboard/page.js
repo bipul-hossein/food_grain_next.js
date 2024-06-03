@@ -1,8 +1,19 @@
 "use client";
-import Link from "next/link";
+
+import { useSession, signIn, signOut } from "next-auth/react";
+import { redirect } from "next/dist/server/api-utils";
 import { useQuery } from "react-query";
 
 const AdminPage = () => {
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/api/auth/signin?callbackUrl=/dashboard");
+    },
+  });
+
+  console.log(session);
+
   // fetch data
   const { data: orders = [], refetch } = useQuery({
     queryKey: ["ordersData"],
@@ -17,6 +28,21 @@ const AdminPage = () => {
 
   return (
     <div>
+      <div className="flex gap-4 mb-4">
+        <span>
+          Signed in as {session?.user?.name} <br />
+          <button className="btn" onClick={() => signOut()}>
+            Sign out
+          </button>
+        </span>
+
+        <span>
+          Not signed in <br />
+          <button className="btn" onClick={() => signIn()}>
+            Sign in
+          </button>
+        </span>
+      </div>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <div className="w-full bg-slate-200 p-3 rounded">
           <h2>Not Verified Orders</h2>
@@ -44,9 +70,9 @@ const AdminPage = () => {
                   <td className="px-2 py-2">{i + 1}</td>
                   <td className="px-2 py-2">
                     {order?.orders?.map((or, i) => (
-                      <>
-                        {or?.products?.map((p) => (
-                          <p>{p?.title}</p>
+                      <div key={i}>
+                        {or?.products?.map((p, i) => (
+                          <p key={i}>{p?.title}</p>
                         ))}
                         <div className="flex justify-between">
                           <p className="mt-1">Total: {or?.total}</p>
@@ -54,7 +80,7 @@ const AdminPage = () => {
                           <p className="mt-1">{or?.createdAt}</p>
                         </div>
                         <hr className="border-gray-300" />
-                      </>
+                      </div>
                     ))}
                   </td>
                   <td className="px-2 py-2 text-center">

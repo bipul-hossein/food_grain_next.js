@@ -82,7 +82,7 @@ const cartSlice = createSlice({
         existingItem.quantity++;
       }
 
-      localStorage.setItem("products", JSON.stringify(current(state.products)));
+      // localStorage.setItem("products", JSON.stringify(current(state.products)));
     },
     decreaseQuantity: (state, { payload }) => {
       const existingItem = state.products.find(

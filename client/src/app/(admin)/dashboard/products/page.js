@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useQuery } from "react-query";
 
 const ProductsPage = () => {
-  // fetch data
+
   const { data: products = [], refetch } = useQuery({
     queryKey: ["productsData"],
     queryFn: async () => {
