@@ -53,6 +53,9 @@ export const options = {
       },
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(options);

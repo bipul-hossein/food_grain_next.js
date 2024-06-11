@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import createWebStorage from "redux-persist/es/storage/createWebStorage";
+import userSlice from "./features/user/userSlice";
 
 export function createPersistStore() {
   const isServer = typeof window === "undefined";
@@ -45,6 +46,7 @@ const persistedReducer = persistReducer(persistConfig, cartReducer);
 export const store = configureStore({
   reducer: {
     cart: persistedReducer,
+    user: userSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
