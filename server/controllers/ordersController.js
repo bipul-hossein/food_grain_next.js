@@ -15,6 +15,21 @@ const handleNewOrders = async (req, res, next) => {
     } = req.body;
     const findUser = await Orders.findOne({ userPhone });
 
+    const now = new Date();
+    // const option = { dateStyle: "full" };
+    const options = {
+      timeStyle: "short",
+      hour12: true,
+      dateStyle: "full",
+    };
+    // const formatDate = new Intl.DateTimeFormat("en-GB", option).format(now);
+
+    const formatTimeNotUgly = new Intl.DateTimeFormat("en-GB", options).format(
+      now
+    );
+    const time_date = formatTimeNotUgly;
+    console.log(formatTimeNotUgly);
+
     if (!findUser) {
       const newOrders = await Orders.create({
         userPhone,
@@ -28,6 +43,7 @@ const handleNewOrders = async (req, res, next) => {
           subtotal,
           shipping,
           total,
+          createdAt: time_date,
         },
       });
 
@@ -46,6 +62,7 @@ const handleNewOrders = async (req, res, next) => {
               subtotal,
               shipping,
               total,
+              createdAt: time_date,
             },
           },
         },
@@ -80,7 +97,7 @@ const handleAllGetOrders = async (req, res, next) => {
   }
 };
 
-const handleGetOrders = async (req, res, next) => {
+const handleGetOrder = async (req, res, next) => {
   const userPhone = req.query.phone;
   console.log(userPhone);
 
@@ -104,4 +121,33 @@ const handleGetOrders = async (req, res, next) => {
   }
 };
 
-module.exports = { handleNewOrders, handleGetOrders, handleAllGetOrders };
+const handleGetOrderById = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(id);
+
+  try {
+    const result = await Orders.findOne({ _id: id });
+    if (!result) {
+      return res.status(404).json({ error: "User not found " });
+    }
+
+    if (result?.orders?.length > 0) {
+      return successResponse(res, {
+        statusCode: 200,
+        message: "Order Successfully Places",
+        payload: result,
+      });
+    } else {
+      res.status(404).json({ error: "User don't have a order" });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = {
+  handleNewOrders,
+  handleGetOrder,
+  handleGetOrderById,
+  handleAllGetOrders,
+};

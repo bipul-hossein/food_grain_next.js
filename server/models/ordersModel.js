@@ -12,10 +12,7 @@ const ordersSchema = new Schema({
       subtotal: { type: Number },
       shipping: { type: Number },
       total: { type: Number },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-      },
+      createdAt: { type: String },
     },
   ],
 });

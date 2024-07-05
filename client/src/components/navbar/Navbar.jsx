@@ -8,13 +8,18 @@ import { HiMenuAlt2, HiOutlineShoppingBag } from "react-icons/hi";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
-// import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const pathname = usePathname();
   const { products } = useSelector((state) => state.cart);
   const [searchQuery, setSearchQuery] = useState("");
-  // const { data: session } = useSession();
+
+  const { user } = useSelector((state) => state?.user);
+  // console.log(user, "admin");
+
+  // if (user?.username == null) {
+  //   return redirect("/login");
+  // }
 
   const navBarList = [
     {
@@ -30,6 +35,16 @@ const Navbar = () => {
       link: "/cart",
     },
   ];
+
+  // const userRole = "admin"; // Change this based on your actual logic
+
+  if (user) {
+    navBarList.push({
+      title: "Dashboard",
+      link: "/dashboard",
+    });
+  }
+
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-400 sticky top-0 z-50">
       <nav className="h-full md:max-w-[80%] mx-auto px-3 xl:px-0 flex items-center justify-between gap-2">

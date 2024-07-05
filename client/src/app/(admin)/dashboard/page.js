@@ -1,24 +1,17 @@
 "use client";
 
-import { logoutUser } from "@/redux/features/user/userSlice";
-import { redirect } from "next/dist/server/api-utils";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useQuery } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const AdminPage = () => {
-  const dispatch = useDispatch();
   const { user } = useSelector((state) => state?.user);
   console.log(user, "admin");
-  // const { data: session } = useSession({
-  //   required: true,
-  //   onUnauthenticated() {
-  //     redirect("/api/auth/signin?callbackUrl=/dashboard");
-  //   },
-  // });
 
-  // console.log(session);
-  const session = "";
+  if (user?.username == null) {
+    return redirect("/login");
+  }
+
   // fetch data
   const { data: orders = [], refetch } = useQuery({
     queryKey: ["ordersData"],
@@ -31,30 +24,8 @@ const AdminPage = () => {
     },
   });
 
-  const signOut = () => {
-    dispatch(logoutUser());
-  };
-
   return (
     <div>
-      <div className="flex gap-4 mb-4">
-        <span>
-          Signed in as {user?.username} <br />
-          <button className="btn" onClick={() => signOut()}>
-            Sign out
-          </button>
-        </span>
-
-        <span>
-          Not signed in <br />
-          {/* <button className="btn" onClick={() => signIn()}>
-            Sign in
-          </button> */}
-          <Link href={"login"} className="btn">
-            Sign in
-          </Link>
-        </span>
-      </div>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-2">
         <div className="w-full bg-slate-200 p-3 rounded">
           <h2>Not Verified Orders</h2>

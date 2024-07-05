@@ -1,10 +1,10 @@
 const { mongoose, Schema } = require("mongoose");
 
 const userSchema = new Schema({
-  userfname: {
+  fullName: {
     type: String,
   },
-  userid: {
+  userId: {
     type: String,
   },
   username: {

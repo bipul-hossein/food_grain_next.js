@@ -1,7 +1,17 @@
 "use client";
+
+import { redirect } from "next/navigation";
 import { toast } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const NewProductPage = () => {
+  const { user } = useSelector((state) => state?.user);
+  // console.log(user, "admin");
+
+  if (user?.username == null) {
+    return redirect("/login");
+  }
+
   const handleCreateProduct = (event) => {
     event.preventDefault();
     const form = event.target;

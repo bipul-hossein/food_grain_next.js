@@ -21,10 +21,9 @@ const Footer = () => {
                     />
                   </Link>
                   <p className="mt-6 text-gray-300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Food Grain একটি অনলাইন প্ল্যাটফর্ম যা বাংলাদেশে খাদ্য সচেতন
+                    মানুুষের অর্গানিক খাদ্য যোগান দেয়। আপনি যদি জৈব খাবারে
+                    আগ্রহী হন, তাহলে আপনি Food Grain হতে সংগ্রহ করতে পারেন।
                   </p>
                   <ul className="flex mt-6 space-x-2">
                     {/* Social Icons - Repeat for each icon */}
@@ -44,6 +43,7 @@ const Footer = () => {
                   </h5>
                   <ul className="mt-6 space-y-2.5">
                     {/* Repeat for each item */}
+                    <Link href={"login"}>Login for All user</Link>
                   </ul>
                 </div>
 

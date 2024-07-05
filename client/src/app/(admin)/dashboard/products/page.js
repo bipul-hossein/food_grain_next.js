@@ -2,9 +2,17 @@
 
 import ProductsListTable from "@/components/admin_components/ProductsListTable";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
 
 const ProductsPage = () => {
+  const { user } = useSelector((state) => state?.user);
+  // console.log(user, "admin");
+
+  if (user?.username == null) {
+    return redirect("/login");
+  }
 
   const { data: products = [], refetch } = useQuery({
     queryKey: ["productsData"],

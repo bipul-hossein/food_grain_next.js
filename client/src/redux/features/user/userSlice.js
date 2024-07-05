@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user:
-    localStorage.getItem("user") !== null
-      ? JSON.parse(localStorage.getItem("user"))
-      : null,
+  user: null,
+  // localStorage.getItem("user") !== null
+  //   ? JSON.parse(localStorage.getItem("user"))
+  //   : null,
 };
 
 const userSlice = createSlice({
@@ -16,11 +16,11 @@ const userSlice = createSlice({
       state.user = payload;
       // state.user.push(payload);
       console.log(state.user);
-      localStorage.setItem("user", JSON.stringify(state.user));
+      // localStorage.setItem("user", JSON.stringify(state.user));
     },
     logoutUser: (state) => {
       state.user = null;
-      localStorage.removeItem("user");
+      // localStorage.removeItem("user");
     },
   },
 });

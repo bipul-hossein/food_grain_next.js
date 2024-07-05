@@ -4,6 +4,7 @@ import { registerUser } from "@/utils/actions/registerUser";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -11,20 +12,24 @@ const RegisterPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-    const userFullName = form.userfullname.value;
-    const userid = form.userid.value;
+    const fullName = form.fullName.value;
+    const userId = form.userId.value;
     const username = form.username.value;
     const password = form.password.value;
-    console.log(userid, username, password);
-    const data = { userFullName, userid, username, password };
+    console.log(userId, username, password);
+    const data = { fullName, userId, username, password };
     try {
       const res = await registerUser(data);
+      console.log(res);
       if (res.success) {
-        alert(res.message);
+        toast.success(res.message);
         router.push("/login");
+      } else {
+        toast.error(res.message);
       }
     } catch (err) {
       console.error(err.message);
+      toast.error(res.message);
       throw new Error(err.message);
     }
   };
@@ -56,19 +61,19 @@ const RegisterPage = () => {
                 placeholder="Your Full Name"
                 className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
                 required
-                name="userfullname"
+                name="fullName"
               />
             </div>
-            <div className="form-control mt-5">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">user id</span>
               </label>
               <input
                 type="text"
-                placeholder="userid"
+                placeholder="userId"
                 className="bg-slate-100 w-full px-2 py-2 rounded border-[1px] border-blue-500 focus:outline-1 focus:outline-green-500"
                 required
-                name="userid"
+                name="userId"
               />
             </div>
 
