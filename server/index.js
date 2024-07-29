@@ -36,9 +36,9 @@ app.use("/api", ordersRouter);
 app.use("/api", userRouter);
 
 // connect to DataBase on server site
-// const url = `mongodb://localhost:27017/FoodGrainDB`;
 // const url = process.env.DB_URL;
-const url = process.env.DB_URL_AN;
+const url = `mongodb://localhost:27017`;
+// const url = process.env.DB_URL_AN;
 const connectDB = async () => {
   try {
     await mongoose.connect(url, { dbName: "food_grain" });

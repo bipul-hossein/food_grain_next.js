@@ -2,8 +2,12 @@
 
 import { logoutUser } from "@/redux/features/user/userSlice";
 import Link from "next/link";
+import logo from "@/assets/Food_Grain.png";
+
 import { usePathname } from "next/navigation";
+import { HiMenuAlt2 } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
 
 const AdminNav = () => {
   const dispatch = useDispatch();
@@ -31,10 +35,20 @@ const AdminNav = () => {
     },
   ];
   return (
-    <div className="md:px-4 bg-slate-100 ">
-      <div className=" my-2">
-        {user ? (
-          <div className="flex flex-col justify-center gap-1">
+//  <div className="">
+     <div className="md:px-4 bg-slate-100">
+      {/* small device */}
+       <nav className="h-full md:max-w-[80%] mx-auto px-3 xl:px-0 py-2 flex md:hidden items-center justify-between gap-2">
+         <Link href={"/"}>
+            <Image src={logo} alt="logo" className="w-full h-full" />
+          </Link>
+          
+          <HiMenuAlt2 className="inline-flex md:hidden cursor-pointer w-8 h-6" />
+       </nav>
+       {/* large device */}
+        <div className="my-2 hidden md:flex md:items-center">
+          {user ? (
+            <div className="flex flex-col justify-center gap-1 md:w-full">
             <span className="text-xl font-semibold hover:text-red-800">
               {user?.username}
             </span>
@@ -46,7 +60,7 @@ const AdminNav = () => {
             </button>
           </div>
         ) : (
-          <div className="flex flex-col justify-center gap-1">
+          <div className="flex flex-col justify-center gap-1 md:w-full">
             <span>Not Signed In ....</span>
             <Link
               href={"/login"}
@@ -71,7 +85,9 @@ const AdminNav = () => {
           </Link>
         ))}
       </div>
+    
     </div>
+//  </div>
   );
 };
 

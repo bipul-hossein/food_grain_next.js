@@ -23,46 +23,34 @@ const DynamicOrderPage = ({ params }) => {
     <div>
       <div className="pt-4">
         <h2 className="text-xl font-medium">Order Details</h2>
-        <div className="grid grid-cols-2">
-          <div className="grid grid-rows-4 border-r-2 border-red-500 pb-2 text-center bg-blue-50">
-            <h2 className="row-span-1 bg-red-500 pt-2 text-xl">
-              Customer Info
-            </h2>
-            <div className="row-span-3 text-left">
-              <p className="font-semibold">
-                Name:
+        <div className="">
+          <div className="pb-2 text-center">
+            <address className="row-span-3 text-left">
+          
+              <details>
+                <summary className="text-neutral-800">Customer Info</summary>
+                <p>
+                  <span className="font-normal">
+                    <p className="font-semibold inline-block">Name:</p> {orderInfo?.userInfo?.fullName};
+                    <p className="font-semibold inline-block"> Phone:</p> {orderInfo?.userPhone};
+                    <p className="font-semibold inline-block"> Thana:</p> {orderInfo?.userInfo?.thana};
+                    <p className="font-semibold inline-block"> Address:</p> {orderInfo?.userInfo?.address}
+                  </span>
+                </p>
+              </details>
+ 
+              <details>
+                <summary className="text-neutral-800">Delivery Info</summary>
+                <p>
                 <span className="font-normal">
-                  {" "}
-                  {orderInfo?.userInfo?.fullName}
-                </span>
-              </p>
-              <p className="font-semibold">
-                Phone Number:
-                <span className="font-normal"> {orderInfo?.userPhone}</span>
-              </p>
-              <p className="font-semibold">
-                Thana:
-                <span className="font-normal">
-                  {" "}
-                  {orderInfo?.userInfo?.thana};
-                </span>
-              </p>
-              <p className="font-semibold">
-                Address:
-                <span className="font-normal">
-                  {" "}
-                  {orderInfo?.userInfo?.address}
-                </span>
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-rows-4 pb-2 text-center bg-blue-50">
-            <h2 className="row-span-1 bg-red-500 pt-2 text-xl">
-              Delivery Info
-            </h2>
-            <div className="row-span-3">
-              <p className="text-center mt-4">Same</p>
-            </div>
+                    <p className="font-semibold inline-block">Name:</p> {orderInfo?.userInfo?.fullName};
+                    <p className="font-semibold inline-block"> Phone:</p> {orderInfo?.userPhone};
+                    <p className="font-semibold inline-block"> Thana:</p> {orderInfo?.userInfo?.thana};
+                    <p className="font-semibold inline-block"> Address:</p> {orderInfo?.userInfo?.address}
+                  </span>
+                </p>
+              </details>
+            </address>
           </div>
         </div>
         <div>

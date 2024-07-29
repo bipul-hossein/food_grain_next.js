@@ -25,6 +25,7 @@ const ProductsPage = () => {
     },
   });
 
+ 
   return (
     <div>
       <div className="my-3">

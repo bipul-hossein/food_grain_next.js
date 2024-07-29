@@ -13,8 +13,8 @@ export default function AdminLayout({ children }) {
     <html lang="en">
       <body suppressHydrationWarning={true} className="font-display bg-red-50">
         <Layout>
-          <div className="min-h-screen w-9/12 mx-auto bg-white flex flex-row">
-            <AdminNav />
+          <div className="min-h-screen lg:w-9/12 mx-auto bg-white flex flex-col md:flex-row">
+            <AdminNav className=""/>
             <div className="mt-4 w-full md:w-[80%] mx-3">{children}</div>
           </div>
           <Footer />

@@ -13,7 +13,7 @@ const AdminPage = () => {
   }
 
   // fetch data
-  const { data: orders = [], refetch } = useQuery({
+  const { data: orderList = [], refetch } = useQuery({
     queryKey: ["ordersData"],
     queryFn: async () => {
       const res = await fetch(`${process.env.NEXT_PUBLIC_serverUrl}/orders`, {
@@ -36,6 +36,7 @@ const AdminPage = () => {
           <p>{7}</p>
         </div>
       </div>
+
       <div className="pt-4">
         <h2 className="text-xl font-medium">Recent Orders</h2>
         <div>
@@ -48,26 +49,32 @@ const AdminPage = () => {
               </tr>
             </thead>
             <tbody className="">
-              {orders?.map((order, i) => (
-                <tr className="border-b-2" key={order?._id}>
-                  <td className="px-2 py-2">{i + 1}</td>
-                  <td className="px-2 py-2">
-                    {order?.orders?.map((or, i) => (
-                      <div key={i}>
-                        {or?.products?.map((p, i) => (
-                          <p key={i}>{p?.title}</p>
+              {orderList?.map((orderInfo, i) => (
+                <tr className="border-b-2" key={orderInfo?._id}>
+                  <td className="px-2 py-2 text-center">{i + 1}</td>
+                  <td className="px-2 py-2 flex flex-col gap-2">
+                    {orderInfo?.orders?.map((order, i) => (
+                      <div key={i} >
+                        {/* data */}
+                       <p className="pl-2 mt-1 font-mono bg-slate-200 cursor-vertical-text text-pretty">{order?.createdAt}</p>
+                         {/* product info */}
+                       <div className="border-r-4">
+                        {order?.products?.map((product, i) => (
+                          <p key={i}>{product?.title}</p>
                         ))}
+                        {/*  product total */}
                         <div className="flex justify-between">
-                          <p className="mt-1">Total: {or?.total}</p>
-
-                          <p className="mt-1">{or?.createdAt}</p>
+                          <p className="mt-1 font-semibold">Total: {order?.total}</p>
                         </div>
-                        <hr className="border-gray-300" />
+                       </div>
+                        <hr className="border-red-200 mt-2" />
                       </div>
                     ))}
                   </td>
                   <td className="px-2 py-2 text-center">
-                    {order?.userInfo?.fullName}
+                    {orderInfo?.userInfo?.fullName}
+                    <br />
+                    {orderInfo?.userPhone}
                   </td>
                 </tr>
               ))}
