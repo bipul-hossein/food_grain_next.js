@@ -4,6 +4,7 @@ const {
   handleGetOrder,
   handleAllGetOrders,
   handleGetOrderById,
+  handleGetOrderRelated,
 } = require("../controllers/ordersController");
 
 const ordersRouter = express.Router();
@@ -19,5 +20,8 @@ ordersRouter.get("/order", handleGetOrder);
 
 //GET:api/id Get product order by
 ordersRouter.get("/orderbyid/:id", handleGetOrderById);
+
+//GET:api/id Get product order by
+ordersRouter.get("/orderbyidtest/:id", handleGetOrderRelated);
 
 module.exports = ordersRouter;

@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+const sequence  = require('mongoose-sequence')(mongoose);
 const Orders = require("../models/ordersModel");
 const { successResponse } = require("./responseController");
 
@@ -23,6 +25,7 @@ const handleNewOrders = async (req, res, next) => {
       dateStyle: "full",
     };
     // const formatDate = new Intl.DateTimeFormat("en-GB", option).format(now);
+  //  const sq = Orders.plugin(sequence, { inc_field: 'orderNO' });
 
     const formatTimeNotUgly = new Intl.DateTimeFormat("en-GB", options).format(
       now
@@ -39,7 +42,7 @@ const handleNewOrders = async (req, res, next) => {
           thana: thana,
         },
         orders: {
-          products,
+          products, 
           subtotal,
           shipping,
           total,
@@ -121,24 +124,84 @@ const handleGetOrder = async (req, res, next) => {
   }
 };
 
+// handle get order by all orders in a single user
 const handleGetOrderById = async (req, res, next) => {
   const { id } = req.params;
-  console.log(id);
+  console.log(id,'fasfd');
 
   try {
-    const result = await Orders.findOne({ _id: id });
-    if (!result) {
+    const getAllOrder = await Orders.find({});
+    console.log(getAllOrder);
+    // const result = await Orders.findOne({ _id: id });
+    const userOrders = await Orders.findOne({ _id: id });
+
+
+
+    if (!userOrders) {
       return res.status(404).json({ error: "User not found " });
     }
 
-    if (result?.orders?.length > 0) {
+    if (userOrders?.orders?.length > 0) {
       return successResponse(res, {
         statusCode: 200,
-        message: "Order Successfully Places",
-        payload: result,
+        message: "Order return Successfully",
+        payload: getAllOrder,
       });
     } else {
       res.status(404).json({ error: "User don't have a order" });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// handle get order by requesting order and related other orders in a single user
+const handleGetOrderRelated = async (req, res, next) => {
+  
+  try {
+    const { id } = req.params;
+    const orderId = req.body.orderId;	
+    // console.log(id,'hit by order related');
+    // const orderId = req.params;
+    const userOrders = await Orders.findOne({ _id: id });
+// console.log(userOrders.orders);
+// console.log(userId);
+ 
+const singleOrder = userOrders?.orders?.find(item=>console.log(item))
+res.json(userOrders?.orders[0]);
+console.log(userOrders?.orders[0]?._id);
+// console.log(singleOrder);
+
+    // Find the order with the specified orderId
+    // const order = await Orders.findOne({ orderId:id }).exec();
+    // const getAllOrder = await Orders.find({});
+    // console.log(getAllOrder);
+    // // const result = await Orders.findOne({ _id: id });
+    // const userOrders = await Orders.findOne({ _id: id });
+
+
+    // const orderId = req.params.orderId; // Extract the order ID from the route parameter
+
+    // Find comments associated with the given order ID
+    // const userOrders = await Orders.findOne({ orderId: id }).exec();
+    // console.log(order,"jkklsdjflkdsjf");
+
+
+
+    // if (!userOrders) {
+    //   return res.status(404).json({ error: "User not found " });
+    // }
+
+    // // if (userOrders?.orders?.length > 0)
+    // if (userOrders)
+       {
+      return successResponse(res, {
+        statusCode: 200,
+        message: "Order return Successfully",
+        payload: userOrders,
+      });
+    // } else {
+      // res.status(404).json({ error: "User don't have a order" });
     }
   } catch (error) {
     next(error);
@@ -149,5 +212,6 @@ module.exports = {
   handleNewOrders,
   handleGetOrder,
   handleGetOrderById,
+  handleGetOrderRelated,
   handleAllGetOrders,
 };

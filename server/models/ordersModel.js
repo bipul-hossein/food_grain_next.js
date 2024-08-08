@@ -8,6 +8,12 @@ const ordersSchema = new Schema({
   orders: [
     {
       id: Schema.Types.ObjectId,
+      status: {
+        type: String,
+        require: true,
+        default:"not_verified"
+        
+      },
       products: [],
       subtotal: { type: Number },
       shipping: { type: Number },

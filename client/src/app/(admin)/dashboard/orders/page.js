@@ -69,7 +69,7 @@ const OrdersPage = () => {
                       className="text-blue-400 hover:cursor-pointer"
                       href={`/dashboard/orders/${orderInfo?._id}`}
                     >
-                      Order Details
+                       Customer details
                     </Link>
                   </td>
                 </tr>
