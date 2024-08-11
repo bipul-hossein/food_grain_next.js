@@ -36,8 +36,8 @@ app.use("/api", ordersRouter);
 app.use("/api", userRouter);
 
 // connect to DataBase on server site
-// const url = process.env.DB_URL;
-const url = `mongodb://localhost:27017`;
+const url = process.env.DB_URL;
+// const url = `mongodb://localhost:27017`;
 // const url = process.env.DB_URL_AN;
 const connectDB = async () => {
   try {
@@ -49,7 +49,7 @@ const connectDB = async () => {
   }
 };
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Hello next World!");
 });
 
