@@ -38,6 +38,7 @@ const orders=[
     {title:"Successfully Delivery", value:"success_delivery"},
     {title:"Parcel Cancel", value:"parcel_cancel"},
   ]
+  // orderStatus=["not_verified", "verified", "pending_parcel", "canceled", "waiting_request", "success_delivery", "success_delivery"]
 
 
 

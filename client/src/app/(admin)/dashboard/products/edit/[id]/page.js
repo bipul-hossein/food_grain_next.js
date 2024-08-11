@@ -8,9 +8,9 @@ const DynamicProductEditPage = ({ params }) => {
   const { user } = useSelector((state) => state?.user);
   console.log(params, "admin");
 
-  if (user?.username == null) {
-    return redirect("/login");
-  }
+  // if (user?.username == null) {
+  //   return redirect("/login");
+  // }
 
   // console.log(process.env.NEXT_PUBLIC_serverUrl);
   const { data: product = [], refetch } = useQuery({

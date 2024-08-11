@@ -7,6 +7,7 @@ const ordersSchema = new Schema({
   userInfo: {},
   orders: [
     {
+      orderNO: { type: String },                                  
       id: Schema.Types.ObjectId,
       status: {
         type: String,

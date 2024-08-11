@@ -8,9 +8,9 @@ const AdminPage = () => {
   const { user } = useSelector((state) => state?.user);
   console.log(user, "admin");
 
-  if (user?.username == null) {
-    return redirect("/login");
-  }
+  // if (user?.username == null) {
+  //   return redirect("/login");
+  // }
 
   // fetch data
   const { data: orderList = [], refetch } = useQuery({
