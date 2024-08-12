@@ -1,4 +1,5 @@
 "use client"
+import SummaryApi from "@/common";
 import { useQuery } from "react-query";
 
 const DynamicOrderPage = () => {
@@ -6,7 +7,7 @@ const DynamicOrderPage = () => {
     queryKey: ["orderData"],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_serverUrl}/orderbyid/${params?.id}`,
+        SummaryApi.userOrdersById.url,
         {
           cache: "no-store",
         }
@@ -228,7 +229,7 @@ export default DynamicOrderPage;
 //     queryKey: ["orderData"],
 //     queryFn: async () => {
 //       const res = await fetch(
-//         `${process.env.NEXT_PUBLIC_serverUrl}/orderbyid/${params?.id}`,
+//          SummaryApi.userOrdersById.url,
 //         {
 //           cache: "no-store",
 //         }

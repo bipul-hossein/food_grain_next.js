@@ -15,7 +15,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const { user } = useSelector((state) => state?.user);
-  // console.log(user, "admin");
+  // console.log(searchQuery, "admin");
 
   // if (user?.username == null) {
   //   return redirect("/login");
@@ -73,9 +73,8 @@ const Navbar = () => {
             <Link
               href={item?.link}
               key={i}
-              className={`flex hover:font-medium w-20 h-6 justify-center items-center px-12 text-gray-600 hover:underline underline-offset-4 decoration-[1px] hover:text-gray-950 md:border-r-[2px] border-r-gray-400 duration-200 last:border-r-0 ${
-                pathname === item?.link && "text-gray-950 underline"
-              }`}
+              className={`flex hover:font-medium w-20 h-6 justify-center items-center px-12 text-gray-600 hover:underline underline-offset-4 decoration-[1px] hover:text-gray-950 md:border-r-[2px] border-r-gray-400 duration-200 last:border-r-0 ${pathname === item?.link && "text-gray-950 underline"
+                }`}
             >
               {item?.title}
             </Link>
@@ -108,3 +107,25 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+// searching 
+
+// <li class="header-search-form search-form html relative has-icon">
+// 	<div class="header-search-form-wrapper">
+// 		<div class="searchform-wrapper ux-search-box relative is-normal"><form role="search" method="get" class="searchform" action="https://hffoodservice.com/" data-gtm-form-interact-id="0">
+// 	<div class="flex-row relative">
+// 						<div class="flex-col flex-grow">
+// 			<label class="screen-reader-text" for="woocommerce-product-search-field-0">Search for:</label>
+// 			<input type="search" id="woocommerce-product-search-field-0" class="search-field mb-0" placeholder="Search Here" value="" name="s" autocomplete="off" data-gtm-form-interact-field-id="0">
+// 			<input type="hidden" name="post_type" value="product">
+// 					</div>
+// 		<div class="flex-col">
+// 			<button type="submit" value="Search" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+// 				<i class="icon-search"></i>			</button>
+// 		</div>
+// 	</div>
+// 	<div class="live-search-results text-left z-top"><div class="autocomplete-suggestions" style="display: none;"><div class="autocomplete-suggestion" data-index="0"><img class="search-image" src="https://hffoodservice.com/wp-content/uploads/2024/03/Shahi-laccha-semai-280x280.jpg"><div class="search-name">শাহী লাচ্ছা সেমাই ( ঘিয়ে ভাজা ) |  Shahi Laccha Semai (<strong>Ghe</strong>e Fried)</div><span class="search-price"><span class="woocommerce-Price-amount amount"><bdi>800<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span> – <span class="woocommerce-Price-amount amount"><bdi>1,500<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span><span></span></span></div><div class="autocomplete-suggestion" data-index="1"><img class="search-image" src="https://hffoodservice.com/wp-content/uploads/2023/11/ghee-1-280x280.jpg"><div class="search-name">দানাদার গাওয়া ঘি | Granular Gawa <strong>Ghe</strong>e</div><span class="search-price"><span class="woocommerce-Price-amount amount"><bdi>850<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span> – <span class="woocommerce-Price-amount amount"><bdi>1,600<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span><span></span></span></div><div class="autocomplete-suggestion" data-index="2"><img class="search-image" src="https://hffoodservice.com/wp-content/uploads/2024/05/Eid-Combo-1-280x280.jpg"><div class="search-name">কুরবানি ঈদ কম্বো | Qurbani Eid Combo</div><span class="search-price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi>3,198<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span></del> <span class="screen-reader-text">Original price was: 3,198৳&nbsp;.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi>2,850<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span></ins><span class="screen-reader-text">Current price is: 2,850৳&nbsp;.</span><span></span></span></div><div class="autocomplete-suggestion" data-index="3"><div class="search-name">CMO Message</div></div><div class="autocomplete-suggestion" data-index="4"><div class="search-name">About</div></div></div></div>
+// </form>
+// </div>	</div>
+// </li>

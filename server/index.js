@@ -36,13 +36,13 @@ app.use("/api", ordersRouter);
 app.use("/api", userRouter);
 
 // connect to DataBase on server site
-const url = process.env.DB_URL;
+// const url = process.env.DB_URL;
+// await mongoose.connect(url, { dbName: "food_grainDB" });
 // const url = `mongodb://localhost:27017`;
-// const url = process.env.DB_URL_AN;
+const url = process.env.DB_URL_AN;
 const connectDB = async () => {
   try {
     await mongoose.connect(url, { dbName: "food_grain" });
-    // await mongoose.connect(url, { dbName: "food_grainDB" });
     console.log("Database is connected now");
   } catch (error) {
     console.log("Database is not connected", error);

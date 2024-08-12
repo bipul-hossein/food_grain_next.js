@@ -1,5 +1,6 @@
 "use client";
 
+import SummaryApi from "@/common";
 import { redirect } from "next/navigation";
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ const AdminPage = () => {
   const { data: orderList = [], refetch } = useQuery({
     queryKey: ["ordersData"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_serverUrl}/orders`, {
+      const res = await fetch(SummaryApi.userOrders.url, {
         cache: "no-store",
       });
       const data = await res.json();

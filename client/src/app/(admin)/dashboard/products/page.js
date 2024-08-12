@@ -1,5 +1,6 @@
 "use client";
 
+import SummaryApi from "@/common";
 import ProductsListTable from "@/components/admin_components/ProductsListTable";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -17,7 +18,7 @@ const ProductsPage = () => {
   const { data: products = [], refetch } = useQuery({
     queryKey: ["productsData"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_serverUrl}/products`, {
+      const res = await fetch(SummaryApi.allProduct.url, {
         cache: "no-store",
       });
       const data = await res.json();

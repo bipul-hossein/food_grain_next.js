@@ -1,4 +1,3 @@
-// components/ProductDetailPage.js
 import PageNav from "../navbar/PageNav";
 import ProductAdditionalInfo from "./related/ProductAdditionalInfo";
 import ProductImage from "./related/ProductImage";
