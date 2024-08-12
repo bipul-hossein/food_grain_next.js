@@ -17,7 +17,7 @@ const DynamicOrderPage = () => {
     },
   });
   const orders = orderInfo?.orders;
-  console.log(orderInfo);
+//   console.log(orderInfo);
 
 
 

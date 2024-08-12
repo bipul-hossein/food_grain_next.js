@@ -63,7 +63,7 @@ const cartSlice = createSlice({
         existingItem.quantity += payload?.quantity;
       } else {
         state.products.push(payload);
-        console.log(payload.title);
+        // console.log(payload.title);
 
         // Dispatch a success toast
         toast.success("Product added to cart");

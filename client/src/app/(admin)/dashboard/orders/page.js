@@ -25,7 +25,7 @@ const OrdersPage = () => {
       return data.payload;
     },
   });
-  console.log(orderList);
+  // console.log(orderList);
 
   return (
     <div>

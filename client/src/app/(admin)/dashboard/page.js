@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const AdminPage = () => {
   const { user } = useSelector((state) => state?.user);
-  console.log(user, "admin");
+  // console.log(user, "admin");
 
   // if (user?.username == null) {
   //   return redirect("/login");

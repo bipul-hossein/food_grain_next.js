@@ -11,7 +11,7 @@ const ProductsListTable = ({ products, refetch }) => {
       })
         .then((response) => response.json())
         .then(({ payload, message, success }) => {
-          console.log("Success:", payload);
+          // console.log("Success:", payload);
           toast.success(payload.title + " " + message);
           refetch();
         })

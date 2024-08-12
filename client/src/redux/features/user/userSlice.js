@@ -15,7 +15,7 @@ const userSlice = createSlice({
       // console.log(payload);
       state.user = payload;
       // state.user.push(payload);
-      console.log(state.user);
+      // console.log(state.user);
       // localStorage.setItem("user", JSON.stringify(state.user));
     },
     logoutUser: (state) => {

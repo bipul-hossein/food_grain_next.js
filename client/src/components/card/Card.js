@@ -7,7 +7,7 @@ import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({ data, icon }) => {
-  console.log(data);
+  // console.log(data);
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state?.cart);
 

@@ -22,7 +22,7 @@ const NewProductPage = () => {
     const weight = form.weight.value;
     const description = form.description.value;
     const new_product = { title, url_title, image, price, weight, description };
-    console.log(new_product);
+    // console.log(new_product);
 
     fetch(`${process.env.NEXT_PUBLIC_serverUrl}/product`, {
       method: "POST",
@@ -33,7 +33,7 @@ const NewProductPage = () => {
     })
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
-        console.log("Success:", payload);
+        // console.log("Success:", payload);
         toast.success(payload.title + " " + message);
         // const newStudent = [...studentsData, data];
         // setStudentsData(newStudent)

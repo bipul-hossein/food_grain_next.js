@@ -16,11 +16,11 @@ const RegisterPage = () => {
     const userId = form.userId.value;
     const username = form.username.value;
     const password = form.password.value;
-    console.log(userId, username, password);
+    // console.log(userId, username, password);
     const data = { fullName, userId, username, password };
     try {
       const res = await registerUser(data);
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         toast.success(res.message);
         router.push("/login");

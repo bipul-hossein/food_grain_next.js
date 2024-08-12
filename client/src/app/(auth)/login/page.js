@@ -20,11 +20,11 @@ const LoginPage = () => {
     const userId = form.userId.value;
     const username = form.username.value;
     const password = form.password.value;
-    console.log(userId, username, password);
+    // console.log(userId, username, password);
     const data = { userId, username, password };
     try {
       const res = await loginUser(data);
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         toast.success(res.message);
         // console.log(res, "login page");

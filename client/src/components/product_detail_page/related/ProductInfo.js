@@ -18,7 +18,7 @@ const ProductInfo = ({ product }) => {
   };
 
   const handleAddToCartValue = () => {
-    console.log(quantity);
+    // console.log(quantity);
   };
 
   return (

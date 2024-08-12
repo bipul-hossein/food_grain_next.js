@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const DynamicProductEditPage = ({ params }) => {
   const { user } = useSelector((state) => state?.user);
-  console.log(params, "admin");
+  // console.log(params, "admin");
 
   // if (user?.username == null) {
   //   return redirect("/login");
