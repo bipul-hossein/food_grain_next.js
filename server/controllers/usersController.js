@@ -5,7 +5,6 @@ const { successResponse } = require("./responseController");
 
 const handleRegisterUser = async (req, res, next) => {
   const { fullName, userId, username, password } = req.body;
-  console.log(fullName, userId, username, password);
 
   try {
     // Check if email already exists
@@ -39,7 +38,6 @@ const handleRegisterUser = async (req, res, next) => {
 
 const handleLoginUser = async (req, res, next) => {
   const { userId, username, password } = req.body;
-  console.log("hitting", userId, username, password);
   try {
     // Find user by email
     const user = await Users.findOne({ username });
@@ -52,7 +50,6 @@ const handleLoginUser = async (req, res, next) => {
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid username or password" });
     }
-    console.log(isPasswordValid);
 
     // Generate JWT token
     const token = jwt.sign(

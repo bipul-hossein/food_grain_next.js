@@ -31,7 +31,6 @@ const handleNewOrders = async (req, res, next) => {
       now
     );
     const time_date = formatTimeNotUgly;
-    console.log(formatTimeNotUgly);
 
     if (!findUser) {
       const newOrders = await Orders.create({
@@ -102,7 +101,6 @@ const handleAllGetOrders = async (req, res, next) => {
 
 const handleGetOrder = async (req, res, next) => {
   const userPhone = req.query.phone;
-  console.log(userPhone);
 
   try {
     const result = await Orders.findOne({ userPhone });
@@ -127,7 +125,6 @@ const handleGetOrder = async (req, res, next) => {
 // handle get order by all orders in a single user
 const handleGetOrderById = async (req, res, next) => {
   const { id } = req.params;
-  console.log(id,'fasfd');
 
   try {
     const getAllOrder = await Orders.find({});
@@ -161,21 +158,15 @@ const handleGetOrderRelated = async (req, res, next) => {
   try {
     const { id } = req.params;
     const orderId = req.body.orderId;	
-    // console.log(id,'hit by order related');
     // const orderId = req.params;
     const userOrders = await Orders.findOne({ _id: id });
-// console.log(userOrders.orders);
-// console.log(userId);
  
 const singleOrder = userOrders?.orders?.find(item=>console.log(item))
 res.json(userOrders?.orders[0]);
-console.log(userOrders?.orders[0]?._id);
-// console.log(singleOrder);
 
     // Find the order with the specified orderId
     // const order = await Orders.findOne({ orderId:id }).exec();
     // const getAllOrder = await Orders.find({});
-    // console.log(getAllOrder);
     // // const result = await Orders.findOne({ _id: id });
     // const userOrders = await Orders.findOne({ _id: id });
 
@@ -184,7 +175,6 @@ console.log(userOrders?.orders[0]?._id);
 
     // Find comments associated with the given order ID
     // const userOrders = await Orders.findOne({ orderId: id }).exec();
-    // console.log(order,"jkklsdjflkdsjf");
 
 
 

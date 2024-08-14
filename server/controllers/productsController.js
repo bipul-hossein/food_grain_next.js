@@ -7,9 +7,7 @@ const { Types, isValidObjectId } = require("mongoose");
 const handleCreateProduct = async (req, res, next) => {
   try {
     const { title, url_title, image, price, weight, description } = req.body;
-    console.log(title, image, price, weight, description);
     const exitingProduct = await Product.findOne({ title: title });
-    console.log(url_title, " 4654 629");
     if (!exitingProduct) {
       const newProduct = await Product.create({
         title,
@@ -39,7 +37,6 @@ const handleCreateProduct = async (req, res, next) => {
 const handleGetProducts = async (req, res, next) => {
   try {
     const getProducts = await Product.find({}).lean();
-    // console.log(getProducts);
 
     return successResponse(res, {
       statusCode: 200,
@@ -54,14 +51,12 @@ const handleGetProducts = async (req, res, next) => {
 const handleGetSingleProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id,'saljflk')
     const getProduct = await Product.findOne({
       $or: [
       { _id: isValidObjectId(id) ? new Types.ObjectId(id) : undefined },
       { slug: id }
       ],
     }).lean();
-    console.log(getProduct,"63");
     if (getProduct) {
       return successResponse(res, {
         statusCode: 200,
@@ -82,9 +77,7 @@ const handleGetSingleProduct = async (req, res, next) => {
 const handleUpdateProduct = async (req, res, next) => {
   try {
     const { title, url_title, image, price, weight, description } = req.body;
-    // console.log(title, url_title, image, price, weight, description);
     const { id } = req.params;
-    console.log(id,"JKLASIFDOJASOI");
     const filter = { _id: id };
     const updates = {
       $set: {
@@ -123,7 +116,6 @@ const handleDeleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
     const deleteProduct = await Product.findOneAndDelete({ _id: id });
-    // console.log(id, "hit");
     if (!deleteProduct) {
       throw createError(404, "Product not found");
     }

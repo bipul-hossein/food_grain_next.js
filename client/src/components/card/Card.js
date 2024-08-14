@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Card = ({ data, icon }) => {
-  // console.log(data);
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state?.cart);
 

@@ -43,7 +43,6 @@ const CheckoutPage = () => {
     })
       .then((response) => response.json())
       .then(({ payload, message, success }) => {
-        // console.log("Success:", payload);
         if (success) {
           form.reset();
         }

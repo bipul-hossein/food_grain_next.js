@@ -9,7 +9,6 @@ const BREADCRUMBS = [
 ];
 
 const ProductDetailPage = ({ product }) => {
-  // console.log(product, "ldsjfkls");
   return (
     <div className="mx-auto py-4">
       <PageNav BREADCRUMBS={BREADCRUMBS} />
