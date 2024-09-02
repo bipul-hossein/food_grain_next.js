@@ -41,12 +41,13 @@ const handleLoginUser = async (req, res, next) => {
   try {
     // Find user by email
     const user = await Users.findOne({ username });
+    
     if (!user) {
       return res.status(401).json({ message: "Invalid username or password" });
     }
-
+    
     // Compare hashed password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await bcrypt.compare(password, user?.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid username or password" });
     }
@@ -59,12 +60,6 @@ const handleLoginUser = async (req, res, next) => {
         expiresIn: process.env.EXPIRES_IN,
       }
     );
-
-    // res.json({
-    //   success: true,
-    //   message: "User successfully logged in!",
-    //   accessToken: token,
-    // });
     return successResponse(res, {
       statusCode: 200,
       message: "User successfully logged in!",

@@ -18,6 +18,7 @@ const Footer = () => {
                       className="h-12 w-auto"
                       src={logo}
                       alt="Brand Name"
+                      priority
                     />
                   </Link>
                   <p className="mt-6 text-gray-300">

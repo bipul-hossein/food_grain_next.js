@@ -39,7 +39,7 @@ const ProductInfo = ({ product }) => {
 
       <div>
         <div className="counter flex items-center text-2xl justify-start my-4">
-          <div className="shadow-md flex">
+          <div className="flex">
             <span
               onClick={handleDecrease}
               className="bg-gray-100 text-black w-8 flex items-center justify-center rounded-l-lg cursor-pointer hover:bg-gray-300 border-[1px] border-gray-300 hover:border-gray-300"
@@ -62,7 +62,6 @@ const ProductInfo = ({ product }) => {
 
       <button
         onClick={handleAddToCartValue}
-        handleAddToCartValue
         className="uppercase md:text-xl bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
       >
         Add to Cart

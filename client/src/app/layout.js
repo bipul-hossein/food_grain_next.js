@@ -1,4 +1,4 @@
-import "../../styles/globals.css";
+import "../styles/globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Layout from "@/components/layout/Layout";
 import Footer from "@/components/footer/Footer";

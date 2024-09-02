@@ -4,6 +4,7 @@ import { getSingleProduct } from "@/utils/getSingleProduct";
 const DynamicProductsPage = async ({ params }) => {
 
   const { payload } = await getSingleProduct(params.slug);
+  console.log(payload,"sdflkj");
   return <ProductDetailPage product={payload} />;
 };
 export default DynamicProductsPage;

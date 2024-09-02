@@ -13,6 +13,7 @@ const productRouter = require("./routes/productRouter");
 const ordersRouter = require("./routes/ordersRouter");
 const Users = require("./models/userModel");
 const userRouter = require("./routes/userRouter");
+const seedRouter = require("./routes/seedRouter");
 
 dotenv.config();
 
@@ -34,6 +35,7 @@ app.use(express.static("build"));
 app.use("/api", productRouter);
 app.use("/api", ordersRouter);
 app.use("/api", userRouter);
+app.use("/api", seedRouter);
 
 // connect to DataBase on server site
 // const url = process.env.DB_URL;

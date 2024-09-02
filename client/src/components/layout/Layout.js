@@ -1,7 +1,6 @@
 "use client";
 
-import { store, persistor } from "@/redux/store";
-import { PersistGate } from "redux-persist/integration/react";
+import { store } from "@/redux/store";
 import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -12,7 +11,6 @@ const Layout = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
           <Toaster
             position="top-right"
             reverseOrder={false}
@@ -34,7 +32,6 @@ const Layout = ({ children }) => {
             }}
           />
           {children}
-        </PersistGate>
       </Provider>
     </QueryClientProvider>
   );

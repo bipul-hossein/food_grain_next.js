@@ -20,7 +20,7 @@ const SingleProduct = ({ product }) => {
             alt="product image"
             width={200}
             height={200}
-            // priority={true}
+            priority={true}
             className="w-full object-contain md:aspect-square"
           />
         </div>

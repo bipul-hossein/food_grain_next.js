@@ -5,6 +5,7 @@ const {
   handleCreateProduct,
   handleUpdateProduct,
   handleDeleteProduct,
+  handleGetSearchProducts,
 } = require("../controllers/productsController");
 
 const productRouter = express.Router();
@@ -17,6 +18,9 @@ productRouter.get("/product/:id", handleGetSingleProduct);
 
 //Get:api/products all product
 productRouter.get("/products", handleGetProducts);
+
+//Get:api/products all product
+productRouter.get("/search", handleGetSearchProducts);
 
 //Put:api/id single product by product id
 productRouter.put("/product/:id", handleUpdateProduct);

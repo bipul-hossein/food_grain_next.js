@@ -7,11 +7,13 @@ const { Types, isValidObjectId } = require("mongoose");
 const handleCreateProduct = async (req, res, next) => {
   try {
     const { title, url_title, image, price, weight, description } = req.body;
-    const exitingProduct = await Product.findOne({ title: title });
+    console.log(title, url_title, image, price, weight, description);
+    const exitingProduct = await Product.findOne({ url_title: url_title });
     if (!exitingProduct) {
+      // console.log("lksajdflksajflkasdj");
       const newProduct = await Product.create({
         title,
-        slug: slugify(url_title),
+        url_title: slugify(url_title),
         image,
         price,
         weight,
@@ -48,13 +50,57 @@ const handleGetProducts = async (req, res, next) => {
   }
 };
 
+
+// hitting the url link this 
+// api/search?q=oil&limit=5
+const handleGetSearchProducts = async (req, res, next) => {
+  try {
+    const searchQuery = req.query.q
+    const limit = parseInt(req.query.limit)
+
+    if (!searchQuery) {
+      // Handle the case where no search query is provided
+      return errorResponse(res, {
+        statusCode: 400,
+        message: 'Please provide a valid search query.',
+      });
+    }
+
+    const searchRegExp = new RegExp('.*'+ searchQuery+ '.*' , 'i', 'g')
+        filterProducts = await Product.find({
+            "$or" : [
+                {
+                  title : searchRegExp
+                },
+                {
+                  url_title : searchRegExp
+                }
+            ]
+        }).limit(limit)
+    if(filterProducts.length){
+      return successResponse(res, {
+        statusCode: 200,
+        message: "Products return successfully",
+        payload: filterProducts,
+      });
+    }else{
+      return errorResponse(res, {
+        statusCode: 404,
+        message: "Product Not Found",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 const handleGetSingleProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
     const getProduct = await Product.findOne({
       $or: [
       { _id: isValidObjectId(id) ? new Types.ObjectId(id) : undefined },
-      { slug: id }
+      { url_title: id }
       ],
     }).lean();
     if (getProduct) {
@@ -82,7 +128,7 @@ const handleUpdateProduct = async (req, res, next) => {
     const updates = {
       $set: {
         title,
-        slug: slugify(url_title),
+        url_title: slugify(url_title),
         image,
         price,
         weight,
@@ -134,4 +180,5 @@ module.exports = {
   handleCreateProduct,
   handleUpdateProduct,
   handleDeleteProduct,
+  handleGetSearchProducts
 };

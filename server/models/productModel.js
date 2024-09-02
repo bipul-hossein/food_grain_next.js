@@ -6,7 +6,7 @@ const productSchema = new Schema({
     trim: true,
     require: true,
   },
-  slug: {
+  url_title: {
     type: String,
     required: true,
     lowercase: true,
