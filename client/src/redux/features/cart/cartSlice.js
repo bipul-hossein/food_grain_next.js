@@ -1,39 +1,5 @@
 import toast from "react-hot-toast";
 import { createSlice, current } from "@reduxjs/toolkit";
-// import { useEffect, useState } from "react";
-
-// const products = () => {
-//   if (typeof window !== "undefined") {
-//     return localStorage.getItem("products") !== null
-//       ? JSON.parse(localStorage.getItem("products"))
-//       : [];
-//   }
-// }; typeof window !== "undefined" ? window.
-// const [count, setCount] = useState(null);
-
-//   useEffect(() => {
-//     const savedValue = window.localStorage.getItem("count");
-//     setCount(savedValue ? Number(savedValue) : 0);
-//   }, []);
-
-//   useEffect(() => {
-//     if (typeof count === "number") {
-//       window.localStorage.setItem("count", count);
-//     }
-//   }, [count]);
-
-// const [products, setProducts] = useState(null);
-
-// useEffect(() => {
-//   const savedValue = window.localStorage.getItem("products");
-//   setProducts(savedValue ? JSON.parse(savedValue) : []);
-// }, []);
-
-// useEffect(() => {
-//   if (typeof products === "undefined") {
-//     window.localStorage.setItem("products", products);
-//   }
-// }, [products]);
 
 const initialState = {
   products: [],
@@ -66,11 +32,6 @@ const cartSlice = createSlice({
 
         // Dispatch a success toast
         toast.success("Product added to cart");
-
-        // localStorage.setItem(
-        //   "products",
-        //   JSON.stringify(current(state.products))
-        // );
       }
     },
     increaseQuantity: (state, { payload }) => {
@@ -81,7 +42,6 @@ const cartSlice = createSlice({
         existingItem.quantity++;
       }
 
-      // localStorage.setItem("products", JSON.stringify(current(state.products)));
     },
     decreaseQuantity: (state, { payload }) => {
       const existingItem = state.products.find(
@@ -92,7 +52,6 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity--;
       }
-      // localStorage.setItem("products", JSON.stringify(current(state.products)));
     },
 
     calculateTotals: (state) => {
@@ -104,11 +63,6 @@ const cartSlice = createSlice({
       });
       state.totalQuantity = totalQuantity;
       state.totalAmount = totalAmount;
-      // localStorage.setItem(
-      //   "totalQuantity",
-      //   JSON.stringify(state.totalQuantity)
-      // );
-      // localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
 
     deleteItem: (state, { payload }) => {
@@ -117,23 +71,15 @@ const cartSlice = createSlice({
       );
       // Dispatch a success toast
       toast.success("Product removed from cart");
-      // localStorage.setItem("products", JSON.stringify(state.products));
-      // localStorage.setItem(
-      //   "totalQuantity",
-      //   JSON.stringify(state.totalQuantity)
-      // );
-      // localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
     resetCart: (state) => {
       state.products = [];
       state.totalQuantity = 0;
       state.totalAmount = 0;
-      // localStorage.removeItem("products", "totalQuantity", "totalAmount");
     },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {
   addToCart,
   increaseQuantity,

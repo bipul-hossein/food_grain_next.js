@@ -1,6 +1,6 @@
 export const getSearchProducts = async(value) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_serverUrl}/search?q=${value}`,
+        const res = await fetch(`https://food-grain-server.onrender.com/api/search?q=${value}`,
      {
        cache: "no-store",
      });

@@ -34,7 +34,7 @@ const CheckoutPage = () => {
       shipping: 100,
       total: totalAmount + 100,
     };
-    fetch(`${process.env.NEXT_PUBLIC_serverUrl}/order`, {
+    fetch(`https://food-grain-server.onrender.com/api/order`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

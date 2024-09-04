@@ -1,0 +1,78 @@
+
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-segment {
+    color: #a90b26;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 2px 0;
+    min-height: 14px;
+}
+
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-title, .jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .title {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    font-size: 14px;
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-footer .card-jfy-ratings {
+    position: relative;
+}
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-item-desc {
+    background: #fff;
+    padding: 4px 8px 12px;
+}
+.hp-mod-card-hover, .hp-mod-card-hover-v2 {
+    cursor: pointer;
+}
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-image {
+    height: 189px;
+    width: 189px;
+}
+.img-wrap-drz {
+    background-image: url(https://img.lazcdn.com/g/tps/imgextra/i4/O1CN0173jtGL1HbugxKaYeH_!!6000000000777-0-tps-518-518.jpg_200x200.jpg);
+}
+.img-wrap {
+    background-color: #f5f5f5;
+    background-image: url(https://img.lazcdn.com/g/tps/tfs/TB1wkpOf5qAXuNjy1XdXXaYcVXa-720-720.png_200x200.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: transparent !important;
+    display: block;
+    line-height: 2;
+    text-align: center;
+    text-indent: -9999px;
+}
+
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .hp-mod-price {
+    display: flex;
+    margin-top: 4px;
+}
+
+.jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-item-desc {
+    background: #fff;
+    padding: 4px 8px 12px;
+}
+
+/* .jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .card-jfy-title, .jfy-comp-container .hp-mod-card-content .card-jfy-wrapper .title {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    font-size: 14px;
+    height: 36px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.no-data {
+    animation: skeleton-animation 1.2s ease-in-out infinite;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(90deg, #f5f5f5, #eee, #f5f5f5);
+    background-repeat: no-repeat;
+    background-size: 4rem 100%;
+}

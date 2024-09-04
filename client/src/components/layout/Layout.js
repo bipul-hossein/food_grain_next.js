@@ -9,8 +9,8 @@ const queryClient = new QueryClient();
 
 const Layout = ({ children }) => {
   return (
-    <QueryClientProvider client={queryClient}>
       <Provider store={store}>
+    <QueryClientProvider client={queryClient}>
           <Toaster
             position="top-right"
             reverseOrder={false}
@@ -32,8 +32,8 @@ const Layout = ({ children }) => {
             }}
           />
           {children}
-      </Provider>
     </QueryClientProvider>
+      </Provider>
   );
 };
 

@@ -6,6 +6,7 @@ import { HiMenuAlt2, HiOutlineShoppingBag } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
 import Search from "../search/Search";
+import { Suspense } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -34,7 +35,9 @@ const Navbar = () => {
             <Image src={logo} alt="logo" className="w-full h-full" priority />
           </Link>
           {/* search field start*/}
-          <Search />
+          <Suspense>
+            <Search />
+          </Suspense>
           {/* search field end*/}
           <div className="hidden md:inline-flex items-center gap-2">
             {navBarList.map((item, i) => (
